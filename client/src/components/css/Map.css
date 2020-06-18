@@ -1,0 +1,154 @@
+.map{
+  /* margin-top: 75px;  */
+  /* background-color:skyblue; */
+  width:100%;
+  height:700px;
+  padding: 20px 0px;
+}
+
+.map .map-left{
+  margin-top: 75px;
+  margin-left:10px;
+  width: 48%;
+  height:600px;
+  float: left;
+  box-sizing: border-box;
+  border: 2px solid #2ecc71;
+  /* background: pink; */
+}
+.map-left .mymap{
+  width:100%; height:600px;
+}
+
+.map-api{
+  width:100%;
+  height:600px;
+  background:yellow;
+}
+
+.map .map-right{
+  margin-top: 75px;
+  margin-right:10px;
+  width:48%;
+  height:600px;
+  float:right;
+  box-sizing:border-box;
+  border: 2px solid #2ecc71;
+  /* background: skyblue; */
+}
+
+.main_title {
+  width:100%;
+  height:130px;
+  /* background-color: green; */
+  float:left;
+  padding-top:5px;
+  text-align:center;
+  /* border: 2px solid #2ecc71; */
+}
+.main_title h1{
+  font-weight:bold;
+}
+.main_left_btn {
+  width:50%;
+  height:100px;
+  margin-top:40px;
+  /* background-color:red; */
+  float:left;
+  /* border: 2px solid; */
+  text-align:center;
+
+}
+.main_right_btn {
+  width:50%;
+  height:100px;
+  margin-top:40px;
+  /* background-color:blue; */
+  float:right;
+  /* border: 2px solid; */
+  text-align:center;
+}
+.main_list {
+  width:95%;
+  height:150px;
+  margin-top:15px;
+  margin-left:10px;
+  /* background-color:yellow; */
+  /* float:right; */
+  /* border: 2px solid #2ecc71; */
+}
+.save_button{
+  width:100%;
+  height:100px;
+  margin-top:15px;
+  padding-left:30%;
+  /* background-color:pink; */
+  float:right;
+}
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+button {
+  background: #2ecc71;
+  border: 3px solid #2ecc71;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 1em 4em;
+  position: relative;
+  text-transform: uppercase;
+}
+label {
+  /* display: block; */
+  text-align: center;
+  margin:10 20 0 20;
+  /* font-size: .9em; */
+  
+}
+
+/* 클러스터 css  */
+.markerClusterSmall {
+  border-radius: 20px;
+  font-size: 0.6vw;
+  color: #fff;
+  font-weight: 900;
+  font-family: Open Sans;
+  text-transform: uppercase;
+}
+.markerClusterMedium {
+  border-radius: 40px;
+  font-size: 0.6vw;
+  color: #fff;
+  font-weight: 900;
+  font-family: Open Sans;
+  text-transform: uppercase;
+}
+.markerClusterLarge {
+  border-radius: 70px;
+  font-size: 0.6vw;
+  color: #fff;
+  font-weight: 900;
+  font-family: Open Sans;
+  text-transform: uppercase;
+}
+.markerClusterLargeXL {
+  border-radius: 70px;
+  font-size: 0.6vw;
+  color: #fff;
+  font-weight: 900;
+  font-family: Open Sans;
+  text-transform: uppercase;
+}
+.markerClusterLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.markercluster-map { height: 90vh; }

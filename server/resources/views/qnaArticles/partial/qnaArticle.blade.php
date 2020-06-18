@@ -1,0 +1,13 @@
+<div class="articleMedia {{$article->category}}">
+    <div class="articleMedia-body">
+        <h4 class="articleMedia-heading"> </h4>
+        <a href="{{route('qnaArticles.show', $article->id)}}">
+            <h5 data-aos="fade">{{$article->title}}</h5>
+
+        </a>
+        <p class="text-muted">
+            <i class="fa fa-user"></i> {{ $article->user->name }}
+            <i class="fa fa-clock-o"></i> {{ $article->created_at->diffForHumans() }}
+        </p>
+    </div>
+</div>

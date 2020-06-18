@@ -1,0 +1,48 @@
+.Footer{
+  width: 100%;
+  height: 150px;
+  background:gray;
+  /* margin-top:40px; */
+}
+.first-section{
+   width: 40%;
+   float:left;
+   margin: 20px 0px 0px 40px;
+   color: white;
+   font-size: 10px;
+}
+.first-section p{
+  font-size: 15px;
+}
+
+.second-section{
+  width: 20%;
+  float:left;
+  margin-top: 35px;
+  margin-left: -10px;
+  color: white;
+  font-size: 12px;
+}
+
+.third-section{
+  width: 20%;
+  /* height: 100%; */
+  float:left;
+  margin-top: 35px;
+  color: white;
+  margin-left: -10px;
+  font-size: 12px;
+}
+
+.logo-section{
+  /* width: 18%; */
+  float:left;
+  margin-top: 35px;
+  color: white;
+}
+.footer-logo{
+  /* float:left; */
+  /* background: url('./components_img/Aeye.png') no-repeat; */
+  width:100px;
+  height:50px;
+}
