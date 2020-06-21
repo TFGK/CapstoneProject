@@ -27,6 +27,7 @@ class Sidebar extends Component {
       backgroundImage: "url(" + this.props.image + ")"
     };
     return (
+      //side bar Logo 부분
       <div
         id="sidebar"
         className="sidebar"
@@ -54,6 +55,8 @@ class Sidebar extends Component {
             A.eyes
           </a>
         </div>
+
+
         <div className="sidebar-wrapper">
           <ul className="nav">
             {this.state.width <= 991 ? <AdminNavbarLinks /> : null}

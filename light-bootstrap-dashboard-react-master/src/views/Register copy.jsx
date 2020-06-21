@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import { register } from './UserFunctions'
-
+import React, { Component } from 'react';
+import { register } from '../components/Auth/UserFunctions';
 class Register extends Component {
     constructor() {
         super()
@@ -50,7 +49,6 @@ class Register extends Component {
                                     name="name"
                                     placeholder="Enter your name"
                                     value={this.state.name}
-                                    onChange={this.onChange}
                                 />
                             </div>
                             <div className="form-group">

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom';
 import { NavItem, Nav } from "react-bootstrap";
+import { withRouter } from 'react-router-dom' ;
 
 class AdminNavbarLinks extends Component {
-
   // auth
   logOut(e) {
     e.preventDefault()
@@ -11,15 +10,14 @@ class AdminNavbarLinks extends Component {
     this.props.history.push(`/`)
   }
   render() {
-
     // Auth div tag
     const loginRegLink = (
       <Nav pullRight>
-          <NavItem eventKey={1} href="/admin/Login">
+          <NavItem eventKey={1} href="/admin/login">
             Login
           </NavItem>
 
-        <NavItem eventKey={1.1} href="/admin/Register">
+        <NavItem eventKey={1.1} href="/admin/register">
           Register
         </NavItem>
       </Nav>
@@ -48,4 +46,4 @@ class AdminNavbarLinks extends Component {
   }
 }
 
-export default AdminNavbarLinks;
+export default withRouter(AdminNavbarLinks);

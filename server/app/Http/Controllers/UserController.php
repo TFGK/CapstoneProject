@@ -24,7 +24,6 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:4', 
-            'year'  => 'required',
         ]);
 
         if($validator->fails()){
@@ -35,7 +34,11 @@ class UserController extends Controller
             'name' => $request->json()->get('name'),
             'email' => $request->json()->get('email'),
             'password' => Hash::make($request->json()->get('password')),
-            'year' => $request->json()->get('year'),
+            'birthday' => $request->json()->get('birthday'),
+            'city' => $request->json()->get('city'),
+            'country' => $request->json()->get('country'),
+            'about' => $request->json()->get('about'), 
+            'address' => $request->json()->get('address'),
         ]);
 
         $token = JWTAuth::fromUser($user);
@@ -56,6 +59,38 @@ class UserController extends Controller
         }
 
         return response()->json( compact('token') );
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request->json()->get('email');
+        $olduser = User::whereEmail($id)->firstOrFail();
+        $oldtoken = JWTAuth::fromUser($olduser)->delete();
+
+        $validator = Validator::make($request->json()->all() , [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:4', 
+        ]);
+
+        if($validator->fails()){
+                return response()->json($validator->errors()->toJson(), 400);
+        }
+
+        $data = [
+            'name' => $request->json()->get('name'),
+            'email' => $request->json()->get('email'),
+            'password' => Hash::make($request->json()->get('password')),
+            'birthday' => $request->json()->get('birthday'),
+            'city' => $request->json()->get('city'),
+            'country' => $request->json()->get('country'),
+            'about' => $request->json()->get('about'), 
+            'address' => $request->json()->get('address'),
+        ];
+
+        $user = $olduser->update($data);
+        $token = JWTAuth::fromUser($user);
+        return response()->json(compact('user','token'),201);
     }
 
 
