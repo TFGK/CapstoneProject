@@ -7,10 +7,7 @@ import Footer from "components/Footer/Footer";
 import Sidebar from "components/Sidebar/Sidebar";
 
 import { style } from "variables/Variables.jsx";
-
 import routes from "routes.js";
-import routes2 from "routes2.js";
-
 import image from "assets/img/sidebar-3.jpg";
 
 class Admin extends Component {
@@ -27,28 +24,6 @@ class Admin extends Component {
   //side bar routes;
   getRoutes = routes => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
-        return (
-          <Route
-            path={prop.layout + prop.path}
-            render={props => (
-              <prop.component
-                {...props}
-                handleClick={this.handleNotificationClick}
-              />
-            )}
-            key={key}
-          />
-        );
-      } else {
-        return null;
-      }
-    });
-  };
-
-  //auth routes
-  getRoutes2 = routes2 => {
-    return routes2.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route
