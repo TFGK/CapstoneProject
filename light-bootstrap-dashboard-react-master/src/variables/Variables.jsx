@@ -1,3 +1,25 @@
+/*!
+
+=========================================================
+* Light Bootstrap Dashboard React - v1.3.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+//
+// //
+// // // For notifications
+// //
+//
 var defaultWidth =
   window.screen.width > 768
     ? (window.screen.width * 1) / 3
@@ -244,14 +266,14 @@ var style = {
 // // // For tables
 // //
 //
-const thArray = ["ID", "Name", "Salary", "Country", "City"];
+const thArray = ["ID", "title", "name"];
 const tdArray = [
-  ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-  ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-  ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-  ["4", "Philip Chaney", "$38,735", "Korea, South", "Overland Park"],
-  ["5", "Doris Greene", "$63,542", "Malawi", "Feldkirchen in Kärnten"],
-  ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
+  ["1", "Dakota Rice","Oud-Turnhout"],
+  ["2", "Minerva Hooper","Sinaai-Waas"],
+  ["3", "Sage Rodriguez","Baileux"],
+  ["4", "Philip Chaney",  "Overland Park"],
+  ["5", "Doris Greene", "Feldkirchen in Kärnten"],
+  ["6", "Mason Porter", "Gloucester"]
 ];
 
 //

@@ -1,0 +1,17 @@
+.table_btn{
+    margin-left: 15px;
+    margin-bottom: 15px;
+    background-color: #1DC7EA;
+}
+.table_link{
+    color: white
+}
+.table_btn:hover{
+    background-color: #1DC7EA;
+}
+.table_link:hover{
+    color: white
+}
+#sidebar > div.sidebar-wrapper > ul > li:nth-child(2){
+    display: none;
+}
