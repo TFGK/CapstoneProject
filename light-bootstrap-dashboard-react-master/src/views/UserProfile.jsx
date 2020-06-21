@@ -218,28 +218,22 @@ class UserProfile extends Component {
             <Col md={4}>
               <UserCard
                 bgImage="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
-                avatar={avatar}
-                name="Mike Andrew"
-                userName="michael24"
+                avatar="https://t1.daumcdn.net/cfile/tistory/243FE450575F82662D"
+                name={this.state.name}
+                userName={this.state.email}
                 description={
                   <span>
-                    "Lamborghini Mercy
                     <br />
-                    Your chick she so thirsty
-                    <br />
-                    I'm in that two seat Lambo"
+                    {this.state.about}
                   </span>
                 }
                 socials={
                   <div>
-                    <Button simple>
-                      <i className="fa fa-facebook-square" />
+                    <Button simple> 
+                      Time_line
                     </Button>
                     <Button simple>
-                      <i className="fa fa-twitter" />
-                    </Button>
-                    <Button simple>
-                      <i className="fa fa-google-plus-square" />
+                      Articles
                     </Button>
                   </div>
                 }

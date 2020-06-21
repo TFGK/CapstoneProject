@@ -131,7 +131,13 @@ export default class Maps extends Component {
               </div>
                                     
               <div className="map_section_right">
-                <Location />
+                <Location 
+                    mapStyles = {{
+                      width: '100%',
+                      height: '80vh',
+                      margin: "0% 5% 10% 0%"
+                    }}
+                />
               </div>
 
             </div>

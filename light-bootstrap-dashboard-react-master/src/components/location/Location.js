@@ -107,18 +107,12 @@ class Location extends Component {
   }
   
   render() {
-    const mapStyles = {
-      width: '100%',
-      height: '80vh',
-      margin: "0% 5% 10% 0%"
-  }
-
   return (
     <div className="content">
       <Map className="google-map"
           google = {this.props.google} 
-          zoom={15}
-          style={mapStyles}
+          zoom={13}
+          style={this.props.mapStyles}
           initialCenter= {{
             lat: 35.894380,
             lng: 128.619268
