@@ -24,6 +24,9 @@ import Maps from "views/Maps.jsx";
 import Notifications from "views/Notifications.jsx";
 import Upgrade from "views/Upgrade.jsx";
 
+import Login from "views/Login.jsx";
+import Register from "views/Register.jsx";
+
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -46,25 +49,17 @@ const dashboardRoutes = [
     component: TableList,
     layout: "/admin"
   },
+
+  // auth
   {
-    path: "/typography",
-    name: "Typography",
-    icon: "pe-7s-news-paper",
-    component: Typography,
+    path: "/login",
+    component: Login,
     layout: "/admin"
   },
   {
-    path: "/icons",
-    name: "Icons",
-    icon: "pe-7s-science",
-    component: Icons,
-    layout: "/admin"
-  },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "pe-7s-map-marker",
-    component: Maps,
+    path: "/register",
+    
+    component: Register,
     layout: "/admin"
   },
 ];

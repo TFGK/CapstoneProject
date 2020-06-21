@@ -17,14 +17,11 @@
 */
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import NotificationSystem from "react-notification-system";
 
 import AdminNavbar from "components/Navbars/AdminNavbar";
 import Footer from "components/Footer/Footer";
 import Sidebar from "components/Sidebar/Sidebar";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
-
-import { style } from "variables/Variables.jsx";
 
 import routes from "routes.js";
 
@@ -33,8 +30,9 @@ import image from "assets/img/sidebar-3.jpg";
 class Admin extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
-      _notificationSystem: null,
+      data : {...this.props},
       image: image,
       color: "black",
       hasImage: true,
@@ -82,7 +80,6 @@ class Admin extends Component {
             render={props => (
               <prop.component
                 {...props}
-                handleClick={this.handleNotificationClick}
               />
             )}
             key={key}
@@ -105,6 +102,7 @@ class Admin extends Component {
     }
     return "Brand";
   };
+
   handleImageClick = image => {
     this.setState({ image: image });
   };
@@ -172,7 +170,6 @@ class Admin extends Component {
   render() {
     return (
       <div className="wrapper">
-        <NotificationSystem ref="notificationSystem" style={style} />
         <Sidebar {...this.props} routes={routes} image={this.state.image}
         color={this.state.color}
         hasImage={this.state.hasImage}/>

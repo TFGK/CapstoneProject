@@ -16,163 +16,132 @@
 
 */
 import React, { Component } from "react";
-import ChartistGraph from "react-chartist";
 import { Grid, Row, Col } from "react-bootstrap";
+import axios from 'axios';
 
-import { Card } from "components/Card/Card.jsx";
+import Location from '../components/location/Location';
 import { StatsCard } from "components/StatsCard/StatsCard.jsx";
-import { Tasks } from "components/Tasks/Tasks.jsx";
-import {
-  dataPie,
-  legendPie,
-  dataSales,
-  optionsSales,
-  responsiveSales,
-  legendSales,
-  dataBar,
-  optionsBar,
-  responsiveBar,
-  legendBar
-} from "variables/Variables.jsx";
+//import { } from "variables/Variables.jsx";
+import Location_list from "components/location/Location_list";
 
 class Dashboard extends Component {
-  createLegend(json) {
-    var legend = [];
-    for (var i = 0; i < json["names"].length; i++) {
-      var type = "fa fa-circle text-" + json["types"][i];
-      legend.push(<i className={type} key={i} />);
-      legend.push(" ");
-      legend.push(json["names"][i]);
+  state = {
+    location_datas: [],
+    location_data: {},
+    loader : false,
+    url: "/api/locations",
+
+    // count state
+    cont1: 0,
+    cont2: 0,
+    cont3: 0,
+  };
+
+  componentDidMount() {
+    this.getDatas();
+  };
+
+  //ObjCount 
+  ObjCount = () => {
+    // 신호등, 횡단보도, 버스정류장 갯수 확인
+    const tt = this.state.location_datas;
+    this.state.cont1 = 0;
+    this.state.cont2 = 0;
+    this.state.cont3 = 0;
+    console.log('배열객체 확인', tt);
+    for(let i=0; i<tt.length; i++) {
+        if(tt[i].location_type == "신호등") {   
+            this.state.cont1++;
+        } else if (tt[i].location_type == "횡단보도") {
+            this.state.cont2++;
+        } else if (tt[i].location_type == "버스정류장") {
+            this.state.cont3++;
+        }
     }
-    return legend;
+    console.log('cont1', this.state.cont1);
+    console.log('cont2', this.state.cont2);
+    console.log('cont3', this.state.cont3);
   }
+
+  // 조회
+  getDatas = async() => {
+    this.setState({ loader: true });
+    const location_datas = await axios.get(this.state.url);
+    this.setState({ location_datas: location_datas.data, loader: false });
+  };
+
+  // createLegend(json) {
+  //   var legend = [];
+  //   for (var i = 0; i < json["names"].length; i++) {
+  //     var type = "fa fa-circle text-" + json["types"][i];
+  //     legend.push(<i className={type} key={i} />);
+  //     legend.push(" ");
+  //     legend.push(json["names"][i]);
+  //   }
+  //   return legend;
+  // }
+
+
   render() {
     return (
       <div className="content">
         <Grid fluid>
+          {/* start card => 그 4개 창 나오는거 */}
+          <Row>
+            <Location
+            mapStyles = {{
+              width: '98%',
+              height: '80vh',
+              margin: "13% 0% 0% 0%"
+            }}
+          />
+          </Row>
           <Row>
             <Col lg={3} sm={6}>
               <StatsCard
                 bigIcon={<i className="pe-7s-server text-warning" />}
-                statsText="Capacity"
-                statsValue="105GB"
+                statsText="신호등"
+                statsValue={this.state.cont1}
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Updated now"
               />
             </Col>
+
             <Col lg={3} sm={6}>
               <StatsCard
                 bigIcon={<i className="pe-7s-wallet text-success" />}
-                statsText="Revenue"
-                statsValue="$1,345"
-                statsIcon={<i className="fa fa-calendar-o" />}
+                statsText="횡단보도"
+                statsValue={this.state.cont2}
+                statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Last day"
               />
             </Col>
+
             <Col lg={3} sm={6}>
               <StatsCard
                 bigIcon={<i className="pe-7s-graph1 text-danger" />}
-                statsText="Errors"
-                statsValue="23"
-                statsIcon={<i className="fa fa-clock-o" />}
-                statsIconText="In the last hour"
+                statsText="버스정류장"
+                statsValue={this.state.cont3}
+                statsIcon={<i className="fa fa-refresh" />}
+                statsIconText="In the 1 hour"
               />
             </Col>
+
             <Col lg={3} sm={6}>
               <StatsCard
-                bigIcon={<i className="fa fa-twitter text-info" />}
-                statsText="Followers"
-                statsValue="+45"
+                bigIcon={<i className="pe-7s-server text-warning" />}
+                statsText="합계 Data"
+                statsValue={
+                  this.state.cont1 +
+                  this.state.cont2 +
+                  this.state.cont3}
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Updated now"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col md={8}>
-              <Card
-                statsIcon="fa fa-history"
-                id="chartHours"
-                title="Users Behavior"
-                category="24 Hours performance"
-                stats="Updated 3 minutes ago"
-                content={
-                  <div className="ct-chart">
-                    <ChartistGraph
-                      data={dataSales}
-                      type="Line"
-                      options={optionsSales}
-                      responsiveOptions={responsiveSales}
-                    />
-                  </div>
-                }
-                legend={
-                  <div className="legend">{this.createLegend(legendSales)}</div>
-                }
-              />
-            </Col>
-            <Col md={4}>
-              <Card
-                statsIcon="fa fa-clock-o"
-                title="Email Statistics"
-                category="Last Campaign Performance"
-                stats="Campaign sent 2 days ago"
-                content={
-                  <div
-                    id="chartPreferences"
-                    className="ct-chart ct-perfect-fourth"
-                  >
-                    <ChartistGraph data={dataPie} type="Pie" />
-                  </div>
-                }
-                legend={
-                  <div className="legend">{this.createLegend(legendPie)}</div>
-                }
-              />
-            </Col>
-          </Row>
-
-          <Row>
-            <Col md={6}>
-              <Card
-                id="chartActivity"
-                title="2014 Sales"
-                category="All products including Taxes"
-                stats="Data information certified"
-                statsIcon="fa fa-check"
-                content={
-                  <div className="ct-chart">
-                    <ChartistGraph
-                      data={dataBar}
-                      type="Bar"
-                      options={optionsBar}
-                      responsiveOptions={responsiveBar}
-                    />
-                  </div>
-                }
-                legend={
-                  <div className="legend">{this.createLegend(legendBar)}</div>
-                }
-              />
-            </Col>
-
-            <Col md={6}>
-              <Card
-                title="Tasks"
-                category="Backend development"
-                stats="Updated 3 minutes ago"
-                statsIcon="fa fa-history"
-                content={
-                  <div className="table-full-width">
-                    <table className="table">
-                      <Tasks />
-                    </table>
-                  </div>
-                }
               />
             </Col>
           </Row>
         </Grid>
+        {this.ObjCount()};
       </div>
     );
   }
