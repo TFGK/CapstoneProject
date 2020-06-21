@@ -32,7 +32,7 @@ class Dashboard extends Component {
     return (
       <div className="content">
         <Grid fluid>
-          {/* 그래프 두개 */}
+          {/* 그래프 */}
           <Row>
             <Col md={8}>
               <Card

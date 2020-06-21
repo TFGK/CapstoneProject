@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom' ;
 class AdminNavbarLinks extends Component {
   // auth
   logOut(e) {
+    
     e.preventDefault()
     localStorage.removeItem('usertoken')
     this.props.history.push(`/`)

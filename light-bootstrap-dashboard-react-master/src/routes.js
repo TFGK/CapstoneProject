@@ -44,6 +44,7 @@ const dashboardRoutes = [
   },
   {
     path: "/register",
+    
     component: Register,
     layout: "/admin"
   },
