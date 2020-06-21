@@ -1,9 +1,23 @@
 import React, { Component } from "react";
+import { Card } from "components/Card/Card.jsx";
+import { FormInputs } from "components/FormInputs/FormInputs.jsx";
+import Button from "components/CustomButton/CustomButton.jsx";
 
+import {
+  Grid,
+  Row,
+  Col,
+  FormGroup,
+  ControlLabel,
+  FormControl
+} from "react-bootstrap";
+
+import Location_list from './Location_list';
 
 class Location_form extends Component {
     state = {
-        form: {location_name: "",
+        form: {
+               location_name: "",
                location_type: "",
                location_lat: "", 
                location_lng: "",
@@ -28,7 +42,7 @@ class Location_form extends Component {
             console.log("update");
         }
     };
-
+    
     onFormSubmit = event => {
         // prevent form submit
         event.preventDefault();
@@ -40,7 +54,7 @@ class Location_form extends Component {
 
         // change the button to save 
         this.setState({
-            btnName: "Save",
+            btnName: "저장",
             btnClass: "ui primary button submit-button"
         });
 
@@ -106,75 +120,83 @@ class Location_form extends Component {
             }
             this.setState({ form });
         }
-
     };
 
     render() {
         return (
-        <form className="map_form">
-            <div className="map_form_fields">
-              <div className="form_location_fields">
-                <div className="form_location_name">
-                  <h3 className="form_location_title">장소 명</h3>
-                  <input
-                      type="text"
-                      name="location_name"
-                      className="form_location_input"
-                      placeholder="장소 명을 적어주세요"
-                      onChange={this.handleChange}
-                      value={this.state.form.location_name}
-                  />
-                </div>
-                
-                <div className="form_location_explain">
-                  <h3 className="form_location_title">위도</h3>
-                  <input 
-                      type="text" 
-                      name="location_lat"
-                      className="form_location_input" 
-                      placeholder="위도" 
-                      onChange={this.handleChange}
-                      value={this.state.form.location_lat}
-                  />
-                </div>
-              </div>
-              <div className="form_location_fields">
-                <div className="form_location_name">
-                  <h3 className="form_location_title">객체타입</h3>
-                  <input 
-                      type="text" 
-                      name="location_type"
-                      className="form_location_input" 
-                      placeholder="장소 설명을 적어주세요"
-                      onChange={this.handleChange}
-                      value={this.state.form.location_type}
-                  />
-                </div>
-                <div className="form_location_explain">
-                  <h3 className="form_location_title">경도</h3>
-                  <input 
-                      type="text" 
-                      name="location_lng" 
-                      className="form_location_input"
-                      placeholder="경도" 
-                      onChange={this.handleChange}
-                      value={this.state.form.location_lng}
-                  />
-                </div>
-              </div>
-
-              <div className="form_button_section">
-                  <button
-                   className="save_button"
-                   onClick={this.onFormSubmit}>
-                    {this.state.btnName}
-                  </button>
-                  {/* <button className="redbutton cancle-button" onClick={this.clearFormFields}>
-                      취소
-                  </button> */}
-              </div>
+            <div className="content">
+            <Grid fluid>
+            <Row>
+                <Col md={4}>
+                <Card
+                    title="data insert form"
+                    content={
+                    <form className="map_form">
+                        <FormInputs
+                        ncols={["col-md-6", "col-md-6"]}
+                        properties={[
+                            {
+                            label: "Data type",
+                            type: "text",
+                            name: "location_type",
+                            bsClass: "form-control",
+                            placeholder: "Data type",
+                            value: this.state.form.location_type,
+                            onChange: this.handleChange
+                            },
+                            {
+                            label: "location name",
+                            type: "text",
+                            name: "location_name",
+                            bsClass: "form-control",
+                            placeholder: "location name",
+                            value: this.state.form.location_name,
+                            onChange: this.handleChange
+                            }
+                        ]}
+                        />
+                        <FormInputs
+                        ncols={["col-md-6", "col-md-6"]}
+                        properties={[
+                            {
+                            label: "location_lat",
+                            type: "text",
+                            name: "location_lat",
+                            bsClass: "form-control",
+                            placeholder: "location_lat",
+                            value: this.state.form.location_lat,
+                            onChange: this.handleChange
+                            },
+                            {
+                            label: "location_lng",
+                            type: "text",
+                            name: "location_lng",
+                            bsClass: "form-control",
+                            placeholder: "location_lng",
+                            value: this.state.form.location_lng,
+                            onChange: this.handleChange
+                            }
+                        ]}
+                        />
+                        <Button
+                            bsStyle="info"
+                            pullRight fill type="submit"
+                            onClick={this.onFormSubmit}
+                            className="save_button"
+                        >
+                        {this.state.btnName}
+                        </Button>
+                    </form>
+                    }
+                />
+                </Col>
+                <Location_list 
+                    location_datas={this.props.location_datas}
+                    onDelete={this.onDelete}
+                />
+            </Row>
+            </Grid>
             </div>
-        </form>
         );
     }
 }

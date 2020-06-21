@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Button from "components/CustomButton/CustomButton.jsx";
 
 export default class Location_data extends Component {
     onDelete = id  => {
@@ -12,17 +12,16 @@ export default class Location_data extends Component {
     }
     render() {
         const {id, location_name, location_type, location_lat, location_lng } = this.props.location_data;
-        console.log(this.props.location_data);
         return (
             <tr>
                 <td style={{ textAlign: "center" }}>{id}</td>
-                <td>{location_name}</td>
                 <td>{location_type}</td>
+                <td>{location_name}</td>
                 <td>{location_lat}</td>
                 <td>{location_lng}</td>
                 <td>
-                    <button className="mini ui blue button" onClick={this.onEdit}>Edit</button>
-                    <button className="mini ui red button deleted_button" onClick={this.onDelete}>Delete</button>
+                    <Button className="edited_button" onClick={this.onEdit}>Edit</Button>
+                    <Button className="deleted_button" onClick={this.onDelete}>Delete</Button>
                 </td>
             </tr>
         );

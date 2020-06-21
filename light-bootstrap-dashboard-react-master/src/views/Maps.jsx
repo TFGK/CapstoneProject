@@ -3,9 +3,7 @@ import axios from 'axios';
 
 //구글맵 API Import
 import Location from '../components/location/Location';
-
 import Location_form from '../components/location/Location_form';
-import Location_list from '../components/location/Location_list';
 import Loader from '../components/location/Loader';
 
 export default class Maps extends Component {
@@ -83,10 +81,10 @@ export default class Maps extends Component {
     }
 
     onEdit = data => {
-        this.setState({ location_data: data });
-        this.setState({
-            on:!this.state.on
-        })
+      this.setState({ location_data: data });
+      this.setState({
+          on:!this.state.on
+      })
     }
 
     //ObjCount 
@@ -123,17 +121,13 @@ export default class Maps extends Component {
 
               <div className="map_section_1">
                 <Location_form
+                  //datas는 list로감
+                  location_datas={this.state.location_datas}
                   location_data={this.state.location_data}
                   onFormSubmit={this.onFormSubmit}
+                  onDelete={this.onDelete}
+                  onEdit={this.onEdit}
                 />
-              </div>
-
-              <div className="map_section_2">
-              <Location_list
-                location_datas={this.state.location_datas}
-                onDelete={this.onDelete}
-                onEdit={this.onEdit}
-              />
               </div>
                                     
               <div className="map_section_right">

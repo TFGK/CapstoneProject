@@ -1,6 +1,9 @@
 import React, { Component, createContext } from "react";
 import Location_data from './Location_data';
-
+import { Card } from "components/Card/Card.jsx";
+import {
+    Col,
+  } from "react-bootstrap";
 
 export default class Location_list extends Component {
 
@@ -17,16 +20,19 @@ export default class Location_list extends Component {
     render() {
         const location_datas = this.props.location_datas;
         return (
-            <div className="data">
-                <table className="ui celled table">
+            <Col md={8}>
+                <Card
+                    title="data list"
+                    content={
+                    <table className="ui celled table">
                     <thead>
                         <tr>
-                            <th style={{width: '50px', textAlign:"center" }}>#</th>
-                            <th>장소 명</th>
-                            <th>장소 설명</th>
+                            <th style={{width: '50px', textAlign:"center" }}>No</th>
+                            <th>데이터타입</th>
+                            <th>장소명</th>
                             <th>위도</th>
                             <th>경도</th>
-                            <th style={{ width: "148px" }}>행동거지</th>
+                            <th style={{ width: "165px" }}>eidt Form</th>
                         </tr>
                     </thead>
 
@@ -45,7 +51,10 @@ export default class Location_list extends Component {
                         }
                     </tbody>
                 </table>
-            </div>
+                }
+                />
+            </Col>
+               
         );
     }
 }

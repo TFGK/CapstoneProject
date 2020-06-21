@@ -2,6 +2,8 @@ import { GoogleApiWrapper, Map, Marker, InfoWindow } from "google-maps-react";
 import React, { Component, Fragment } from "react";
 import axios from 'axios';
 
+import { handleChange } from './Location_form';
+
 class Location extends Component {
   state = {
     stores: [],
@@ -32,10 +34,12 @@ class Location extends Component {
       value1: geoData.latLng.lat(),
       value2: geoData.latLng.lng()
     });
+
     document.getElementsByName("location_lat")[0].value = this.state.value1;
     console.log('value1', this.state.value1);
     document.getElementsByName("location_lng")[0].value = this.state.value2;
     console.log('value2', this.state.value2);
+    
   }
 
   //맵을 클릭했을 때 그 위치(좌표)에 마커 표시됨.
@@ -104,8 +108,9 @@ class Location extends Component {
   
   render() {
     const mapStyles = {
-      width: '80%',
-      height: '50vh',
+      width: '100%',
+      height: '80vh',
+      margin: "0% 5% 10% 0%"
   }
 
   return (
