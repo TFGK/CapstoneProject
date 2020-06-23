@@ -34,8 +34,8 @@ const dashboardRoutes = [
   },
   
   {
-    path: "/create",
-    name: "Create",
+    path: "/userprofile",
+    name: "UserProfile",
     icon: "pe-7s-user",
     component: UserProfile,
     layout: "/admin"
