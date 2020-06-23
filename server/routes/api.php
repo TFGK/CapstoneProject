@@ -14,8 +14,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/RoadAPI', function() {
-    return view('test');
+Route::get('RoadAPI', function() {
+    return view('road');
 });
 
 

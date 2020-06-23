@@ -2,9 +2,10 @@ import { Card } from "components/Card/Card.jsx";
 import { FormInputs } from "components/FormInputs/FormInputs.jsx";
 import { UserCard } from "components/UserCard/UserCard.jsx";
 import Button from "components/CustomButton/CustomButton.jsx";
-
-import avatar from "assets/img/faces/face-3.jpg";
+import Timeline2 from "./Timeline2.jsx";
 import React, { Component } from "react";
+import "../assets/css/timeline.css";
+import Location from '../components/location/Location';
 import {
   Grid,
   Row,
@@ -17,6 +18,7 @@ import {
 //auth
 import { getProfile } from '../components/Auth/UserFunctions';
 import { update } from '../components/Auth/UserFunctions';
+import './loader.js'
 
 class UserProfile extends Component {
   constructor() {
@@ -85,7 +87,11 @@ class UserProfile extends Component {
         }
       })
     }
-}
+  }
+
+  more(e){
+    e.preventDefault();
+  }
 
   render() {
     let str = this.state.name;
@@ -229,21 +235,77 @@ class UserProfile extends Component {
                 }
                 socials={
                   <div>
-                    <Button simple> 
-                      Time_line
-                    </Button>
                     <Button simple>
-                      Articles
+                      Timeline
                     </Button>
                   </div>
                 }
               />
             </Col>
+            {/* <Col md={4}>
+              <Timeline2 />
+            </Col> */}
           </Row>
         </Grid>
+        <hr/>
+        <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h2>timeline</h2>
+          </div>
+          <div>
+          <ul class="timeline timeline-horizontal">
+            <li class="timeline-item">
+              <div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">청담면옥 복현점</h4>
+                </div>
+                <div class="timeline-body">
+                </div>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">한올미용실</h4>
+                </div>
+                <div class="timeline-body">
+                </div>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">훼미리마트 복현슬기점</h4>
+                </div>
+                <div class="timeline-body">
+                </div>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">교동면옥 복현점</h4>
+                </div>
+                <div class="timeline-body">
+                </div>
+              </div>
+            </li>
+          </ul>
+          </div>
+          <div>
+            <a href="http://127.0.0.1:8000/api/RoadAPI" class="more"> more </a>
+          </div>
+        </div>
+        </div>
       </div>
     );
   }
 }
+
 
 export default UserProfile;

@@ -34,11 +34,6 @@ class Login extends Component {
 
     onSubmit (e) {
         e.preventDefault();
-        
-        //validator
-        if(this.state.password != this.state.pwconfirm) {
-            alert('비밀번호가 맞지않습니다. 다시 확인하세요');
-        } else {
             const user = {
                 email: this.state.email,
                 password: this.state.password
@@ -51,8 +46,7 @@ class Login extends Component {
                     console.log('토큰인가?', res);
                     this.props.history.push(`/`)
                 }
-            })
-        }
+        })
     }
 
     render() {
@@ -82,7 +76,7 @@ class Login extends Component {
                             />
                             
                             <FormInputs
-                            ncols={["col-md-6", "col-md-6"]}
+                            ncols={["col-md-10"]}
                             properties={[
                                 {
                                 label: "Password",
@@ -93,15 +87,15 @@ class Login extends Component {
                                 value: this.state.password,
                                 onChange: this.onChange
                                 },
-                                {
-                                label: "Password confirm",
-                                type: "password",
-                                name: "pwconfirm",
-                                bsClass: "form-control",
-                                placeholder: "Password confirm",
-                                value: this.state.pwconfirm,
-                                onChange: this.onChange
-                                }
+                                // {
+                                // label: "Password confirm",
+                                // type: "password",
+                                // name: "pwconfirm",
+                                // bsClass: "form-control",
+                                // placeholder: "Password confirm",
+                                // value: this.state.pwconfirm,
+                                // onChange: this.onChange
+                                // }
                             ]}
                             />
 

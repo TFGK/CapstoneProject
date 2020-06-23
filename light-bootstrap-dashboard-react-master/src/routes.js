@@ -1,7 +1,8 @@
 import Dashboard from "views/Dashboard.jsx";
 import UserProfile from "views/UserProfile.jsx";
-import TableList from "views/TableList.jsx";
 import Maps from "views/Maps.jsx";
+import Create from "views/Create.jsx";
+import TableList from "views/TableList.jsx";
 
 import Login from "views/Login.jsx";
 import Register from "views/Register.jsx";
@@ -14,6 +15,7 @@ const dashboardRoutes = [
     component: Dashboard,
     layout: "/admin"
   },
+  
   {
     path: "/user",
     name: "User Profile",
@@ -28,10 +30,20 @@ const dashboardRoutes = [
     component: Maps,
     layout: "/admin"
   },
+
+  //table
+  {
+    path: "/create",
+    name: "Create",
+    icon: "pe-7s-user",
+    component: Create,
+    layout: "/admin"
+  },
+  //table
   {
     path: "/table",
-    name: "Table List",
-    icon: "pe-7s-note2",
+    name: "board",
+    icon: "pe-7s-user",
     component: TableList,
     layout: "/admin"
   },
@@ -44,7 +56,6 @@ const dashboardRoutes = [
   },
   {
     path: "/register",
-    
     component: Register,
     layout: "/admin"
   },

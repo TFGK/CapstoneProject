@@ -17,6 +17,7 @@ class CreateTasksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('content');
+            $table->text('category');
             $table->timestamps();
         });
     }

@@ -210,7 +210,7 @@
 	content: "\e697";
 }
 .pe-7s-wallet:before {
-	content: "\e600";
+	content:url(../img/crosswalk.png)
 }
 .pe-7s-safe:before {
 	content: "\e698";
@@ -282,7 +282,8 @@
 	content: "\e616";
 }
 .pe-7s-server:before {
-	content: "\e617";
+	content:url(../img/traffic-light.png)
+
 }
 .pe-7s-search:before {
 	content: "\e618";
@@ -495,7 +496,10 @@
 	content: "\e64c";
 }
 .pe-7s-graph1:before {
-	content: "\e64d";
+	content:url(../img/bus-stop.png)
+}
+.pe-7s-sum:before{
+	content:url(../img/database.png)
 }
 .pe-7s-graph:before {
 	content: "\e64e";

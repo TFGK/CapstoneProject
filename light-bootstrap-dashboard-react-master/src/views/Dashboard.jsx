@@ -73,9 +73,9 @@ class Dashboard extends Component {
           <Row>
             <Location
             mapStyles = {{
-              width: '98%',
+              width: '100%',
               height: '80vh',
-              margin: "13% 0% 0% 0%"
+              margin: "10.5% 0% 0% 0%"
             }}
           />
           </Row>
@@ -112,7 +112,7 @@ class Dashboard extends Component {
 
             <Col lg={3} sm={6}>
               <StatsCard
-                bigIcon={<i className="pe-7s-server text-warning" />}
+                bigIcon={<i className="pe-7s-sum text-warning" />}
                 statsText="합계 Data"
                 statsValue={
                   this.state.cont1 +
@@ -124,7 +124,7 @@ class Dashboard extends Component {
             </Col>
           </Row>
         </Grid>
-        {this.ObjCount()};
+        {this.ObjCount()}
       </div>
     );
   }

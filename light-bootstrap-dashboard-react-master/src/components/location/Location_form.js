@@ -132,18 +132,30 @@ class Location_form extends Component {
                     title="data insert form"
                     content={
                     <form className="map_form">
+                        <ControlLabel>CATEGORY</ControlLabel>
+                        <FormControl
+                            id="category"
+                            name="location_type"
+                            componentClass="select"
+                            bsClass="form-control"
+                        >
+                            <option value="">-- 선택 --</option>
+                            <option value="신호등">신호등</option>
+                            <option value="횡단보도">횡단보도</option>
+                            <option value="버스정류장">버스정류장</option>
+                        </FormControl>
                         <FormInputs
-                        ncols={["col-md-6", "col-md-6"]}
+                        ncols={["col-md-12"]}
                         properties={[
-                            {
-                            label: "Data type",
-                            type: "text",
-                            name: "location_type",
-                            bsClass: "form-control",
-                            placeholder: "Data type",
-                            value: this.state.form.location_type,
-                            onChange: this.handleChange
-                            },
+                            // {
+                            // label: "Data type",
+                            // type: "text",
+                            // name: "location_type",
+                            // bsClass: "form-control",
+                            // placeholder: "Data type",
+                            // value: this.state.form.location_type,
+                            // onChange: this.handleChange
+                            // },
                             {
                             label: "location name",
                             type: "text",

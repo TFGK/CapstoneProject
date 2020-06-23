@@ -5,6 +5,7 @@ import axios from 'axios';
 import Location from '../components/location/Location';
 import Location_form from '../components/location/Location_form';
 import Loader from '../components/location/Loader';
+import { isNamedExports } from 'typescript';
 
 export default class Maps extends Component {
     state = {
@@ -135,7 +136,7 @@ export default class Maps extends Component {
                     mapStyles = {{
                       width: '100%',
                       height: '80vh',
-                      margin: "0% 5% 10% 0%"
+                      margin: "0% 0% 0% 0%"
                     }}
                 />
               </div>
