@@ -1,3 +1,20 @@
+/*!
+
+=========================================================
+* Light Bootstrap Dashboard React - v1.3.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
 import { Card } from "components/Card/Card.jsx";
 import { FormInputs } from "components/FormInputs/FormInputs.jsx";
 import { UserCard } from "components/UserCard/UserCard.jsx";
@@ -19,6 +36,7 @@ import {
 import { getProfile } from '../components/Auth/UserFunctions';
 import { update } from '../components/Auth/UserFunctions';
 import './loader.js'
+
 
 class UserProfile extends Component {
   constructor() {
@@ -199,10 +217,23 @@ class UserProfile extends Component {
                     ]}
                   />
                     <Row>
-                      <Col md={12}>
-                        <FormGroup controlId="formControlsTextarea">
-                          <ControlLabel>About Me</ControlLabel>
+                      <Col md={20}>
+                        <FormGroup>
+                          <ControlLabel>제목</ControlLabel>
                           <FormControl
+                            id="title"
+                            name="title"
+                            value={this.state.title || ''}
+                            onChange={this.onChange.bind(this)}
+                            componentClass="input"
+                            bsClass="form-control"
+                          />    
+                          <ControlLabel>내용</ControlLabel>
+                          <FormControl
+                            id="content"
+                            name="content"
+                            value={this.state.content || ''}
+                            onChange={this.onChange.bind(this)}
                             rows="5"
                             componentClass="textarea"
                             bsClass="form-control"
@@ -213,8 +244,8 @@ class UserProfile extends Component {
                         </FormGroup>
                       </Col>
                     </Row>
-                    <Button bsStyle="info" pullRight fill type="submit">
-                      Update Profile
+                    <Button bsStyle="info" pullRight fill type="submit" onClick={this.onSubmit.bind(this)}>
+                      저장
                     </Button>
                     <div className="clearfix" />
                   </form>
