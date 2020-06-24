@@ -3,7 +3,6 @@ import Button from "components/CustomButton/CustomButton.jsx";
 
 export default class Location_data extends Component {
     onDelete = id  => {
-        //console.log('data delete');
         this.props.onDelete(this.props.location_data.id);
     }
 

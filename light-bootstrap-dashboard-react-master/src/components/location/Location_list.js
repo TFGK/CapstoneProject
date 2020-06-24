@@ -32,7 +32,7 @@ export default class Location_list extends Component {
                             <th>장소명</th>
                             <th>위도</th>
                             <th>경도</th>
-                            <th style={{ width: "165px" }}>eidt Form</th>
+                            <th style={{ width: "165px" }}>edit Form</th>
                         </tr>
                     </thead>
 

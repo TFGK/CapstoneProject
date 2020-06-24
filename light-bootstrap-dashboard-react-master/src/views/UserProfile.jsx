@@ -1,28 +1,9 @@
-/*!
-
-=========================================================
-* Light Bootstrap Dashboard React - v1.3.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import { Card } from "components/Card/Card.jsx";
 import { FormInputs } from "components/FormInputs/FormInputs.jsx";
 import { UserCard } from "components/UserCard/UserCard.jsx";
 import Button from "components/CustomButton/CustomButton.jsx";
-import Timeline2 from "./Timeline2.jsx";
 import React, { Component } from "react";
 import "../assets/css/timeline.css";
-import Location from '../components/location/Location';
 import {
   Grid,
   Row,
@@ -204,7 +185,7 @@ class UserProfile extends Component {
                       ]}
                     />
                     <FormInputs
-                    ncols={["col-md-8"]}
+                    ncols={["col-md-6"]}
                     properties={[
                       {
                         label: "Birthday",
@@ -217,17 +198,8 @@ class UserProfile extends Component {
                     ]}
                   />
                     <Row>
-                      <Col md={20}>
+                      <Col md={12}>
                         <FormGroup>
-                          <ControlLabel>제목</ControlLabel>
-                          <FormControl
-                            id="title"
-                            name="title"
-                            value={this.state.title || ''}
-                            onChange={this.onChange.bind(this)}
-                            componentClass="input"
-                            bsClass="form-control"
-                          />    
                           <ControlLabel>내용</ControlLabel>
                           <FormControl
                             id="content"
@@ -248,10 +220,13 @@ class UserProfile extends Component {
                       저장
                     </Button>
                     <div className="clearfix" />
+
+
                   </form>
                 }
               />
             </Col>
+              
             <Col md={4}>
               <UserCard
                 bgImage="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
@@ -273,66 +248,61 @@ class UserProfile extends Component {
                 }
               />
             </Col>
-            {/* <Col md={4}>
-              <Timeline2 />
-            </Col> */}
+
+            <Col md={12}>
+              <div class="page-header">
+                <h2>timeline</h2>
+              </div>
+              <div>
+              <ul class="timeline timeline-horizontal">
+                <li class="timeline-item">
+                  <div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">청담면옥 복현점</h4>
+                    </div>
+                    <div class="timeline-body">
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">한올미용실</h4>
+                    </div>
+                    <div class="timeline-body">
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">훼미리마트 복현슬기점</h4>
+                    </div>
+                    <div class="timeline-body">
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">교동면옥 복현점</h4>
+                    </div>
+                    <div class="timeline-body">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              </div>
+              <div>
+                <a href="http://127.0.0.1:8000/api/RoadAPI" class="more"> more </a>
+              </div>
+            </Col>
           </Row>
         </Grid>
-        <hr/>
-        <div class="row">
-        <div class="col-md-12">
-          <div class="page-header">
-            <h2>timeline</h2>
-          </div>
-          <div>
-          <ul class="timeline timeline-horizontal">
-            <li class="timeline-item">
-              <div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">청담면옥 복현점</h4>
-                </div>
-                <div class="timeline-body">
-                </div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">한올미용실</h4>
-                </div>
-                <div class="timeline-body">
-                </div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">훼미리마트 복현슬기점</h4>
-                </div>
-                <div class="timeline-body">
-                </div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">교동면옥 복현점</h4>
-                </div>
-                <div class="timeline-body">
-                </div>
-              </div>
-            </li>
-          </ul>
-          </div>
-          <div>
-            <a href="http://127.0.0.1:8000/api/RoadAPI" class="more"> more </a>
-          </div>
-        </div>
-        </div>
       </div>
     );
   }

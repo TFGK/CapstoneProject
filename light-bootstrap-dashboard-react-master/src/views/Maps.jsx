@@ -6,7 +6,7 @@ import axios from 'axios';
 import Location from '../components/location/Location';
 import Location_form from '../components/location/Location_form';
 import Loader from '../components/location/Loader';
-import { isNamedExports } from 'typescript';
+// import { isNamedExports } from 'typescript';
 
 export default class Maps extends Component {
     state = {

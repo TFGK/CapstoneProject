@@ -23,7 +23,7 @@ class Location_form extends Component {
                location_lng: "",
                isEdit : false
             },
-        btnName: "저장",
+        btnName: "Save",
         btnClass: "ui primary button submit-button"
     };
 
@@ -42,6 +42,16 @@ class Location_form extends Component {
             console.log("update");
         }
     };
+
+    onDelete = id => {
+        this.props.onDelete(id);
+        //console.log('location list,', id);
+    };
+
+    onEdit = data => {
+        this.props.onEdit(data);
+        //console.log('location list,', data);
+    };
     
     onFormSubmit = event => {
         // prevent form submit
@@ -54,7 +64,7 @@ class Location_form extends Component {
 
         // change the button to save 
         this.setState({
-            btnName: "저장",
+            btnName: "Save",
             btnClass: "ui primary button submit-button"
         });
 
@@ -138,6 +148,7 @@ class Location_form extends Component {
                             name="location_type"
                             componentClass="select"
                             bsClass="form-control"
+                            onChange={this.handleChange}
                         >
                             <option value="">-- 선택 --</option>
                             <option value="신호등">신호등</option>
@@ -147,15 +158,6 @@ class Location_form extends Component {
                         <FormInputs
                         ncols={["col-md-12"]}
                         properties={[
-                            // {
-                            // label: "Data type",
-                            // type: "text",
-                            // name: "location_type",
-                            // bsClass: "form-control",
-                            // placeholder: "Data type",
-                            // value: this.state.form.location_type,
-                            // onChange: this.handleChange
-                            // },
                             {
                             label: "location name",
                             type: "text",
@@ -205,6 +207,7 @@ class Location_form extends Component {
                 <Location_list 
                     location_datas={this.props.location_datas}
                     onDelete={this.onDelete}
+                    onEdit={this.onEdit}
                 />
             </Row>
             </Grid>
