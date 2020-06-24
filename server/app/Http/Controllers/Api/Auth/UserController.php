@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\Auth;
 
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
+
 
 //use JWTAuth;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -17,6 +19,22 @@ use Tymon\JWTAuth\JWTManager as JWT;
 
 class UserController extends Controller
 {   
+   
+    public function login(Request $request)
+    {
+        // $credentials = $request->json()->all();
+        $credentials = $request->only(['email', 'password']);
+
+        try {
+            if (!$token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'invalid_credentials'], 400);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'could_not_create_token'], 500);
+        }
+
+        return response()->json( compact('token') );
+    }
 
     public function register(Request $request)
     {
@@ -45,27 +63,23 @@ class UserController extends Controller
 
         return response()->json(compact('user','token'),201);
     }
-    
-    public function login(Request $request)
-    {
-        $credentials = $request->json()->all();
 
+    public function refresh() 
+    {
         try {
-            if (!$token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 400);
-            }
-        } catch (JWTException $e) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
+            $newToken = auth()->refresh();
+        } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+            return response()->json(['error' => $e->getMessage()], 401);
         }
 
-        return response()->json( compact('token') );
+        return response()->json(['token' => $newToken]);
+
     }
 
     public function update(Request $request)
     {
         $id = $request->json()->get('email');
         $olduser = User::whereEmail($id)->firstOrFail();
-        $oldtoken = JWTAuth::fromUser($olduser)->delete();
 
         $validator = Validator::make($request->json()->all() , [
             'name' => 'required|string|max:255',
