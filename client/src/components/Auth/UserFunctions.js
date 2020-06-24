@@ -1,9 +1,8 @@
 import axios from 'axios'
-import { defaultsDeep } from 'lodash'
 
 export const register = newUser => {
     return axios
-        .post('api/register', newUser, {
+        .post('/api/register', newUser, {
             headers: { 'Content-Type': 'application/json' }
         })
         .then(response => {
@@ -31,7 +30,33 @@ export const login = user => {
         })
         .catch(err => {
             console.log(err)
-            alert('비밀번호를 확인하세요');
+        })
+}
+
+export const update = user => {
+    return axios
+        .put('/api/update',
+            {
+                name: user.name,
+                email: user.email,
+                password: user.password,
+                pwconfirm: user.pwconfirm,
+                address: user.address,
+                city: user.city,
+                country: user.country,
+                about: user.about,
+                birthday: user.birthday,
+            },
+            {
+                headers: { 'Content-Type': 'application/json' }
+            }
+        )
+        .then(response => {
+            localStorage.setItem('usertoken', response.data.token)
+            return response.data.token
+        })
+        .catch(err => {
+            console.log(err)
         })
 }
 

@@ -1,194 +1,134 @@
-import React, { Component } from 'react';
+import { GoogleApiWrapper, Map, Marker, InfoWindow } from "google-maps-react";
+import React, { Component, Fragment } from "react";
 import axios from 'axios';
-import { Spring } from 'react-spring/renderprops'
-//구글맵 API Import
-import Maps from './Maps';
 
-import traffic from '../images/traffic_light.png';
-import crosswalk from '../images/crosswalk.png';
-import busstop from '../images/bus_stop.png';
+import { handleChange } from './Location_form';
 
-import '../css/location.css';
+class Location extends Component {
+  state = {
+    stores: [],
+    value1: "",
+    value2: "",
+    url: "/api/locations",
+    location_datas: []
+  };
 
-import Location_form from './Location_form';
-import Location_list from './Location_list';
-import Loader from '../Loader';
+  componentDidMount() {
+    this.getDatas();
 
-export default class Location extends Component {
-    state = {
-        on:false,
-        location_datas: [],
-        location_data: {},
-        loader : false,
-        url: "api/locations",
+  }
 
-        // count state
-        cont1: 0,
-        cont2: 0,
-        cont3: 0,
-    };
+  getDatas = async() => {
+    const location_datas = await axios.get(this.state.url);
+    this.setState({ location_datas: location_datas.data });
+  };
+
+  addMarkers = async (e, aug, geoData) => {
+    const {stores} = this.state;
+    let stateData = stores;
+    let latLng;
+    latLng = {latitude : geoData.latLng.lat(), longitude : geoData.latLng.lng()};
+    stateData.push(latLng);
+    await this.setState({
+      stores: stateData,
+      value1: geoData.latLng.lat(),
+      value2: geoData.latLng.lng()
+    });
+
+    document.getElementsByName("location_lat")[0].value = this.state.value1;
+    console.log('value1', this.state.value1);
+    document.getElementsByName("location_lng")[0].value = this.state.value2;
+    console.log('value2', this.state.value2);
     
-    componentDidMount() {
-        this.getDatas();
-    };
+  }
 
-    // 생성
-    createDatas = async data => {
-        this.setState({ loader: true });
+  //맵을 클릭했을 때 그 위치(좌표)에 마커 표시됨.
+  displayMarkers = () => {
+    return this.state.stores.map((store, index) => {
+      return (
+        <Marker
+          key={index}
+          id={index} 
+          position={{ lat: store.latitude, lng: store.longitude }}
+          onClick={() => this.removeMarkers(index)}
+        />
+      )
+    });
+  }
+  
+  //홈페이지 들어왔을 때 모든 마커 load
+  displayMarkersAll = () => {
+    return this.state.location_datas.map((location, index) => {
+      return (
+        <Marker
+            key={index}
+            id={index} 
+            position={{ lat: location.location_lat, lng: location.location_lng }}
+            onClick={() => this.visibleInfoWindow(index)}
+        />
+      )
+    })
+  }
 
-        await axios.post(this.state.url, {
-            location_name: data.location_name,
-            location_type: data.location_type,
-            location_lat: data.location_lat,
-            location_lng: data.location_lng,
-        });
+  //마커 infomation 비저빌리티 함수
+  visibleInfoWindow = async (i) => {
+    const {location_datas} = this.state;
+    let stateData = location_datas;
+    stateData[i].bool = !stateData[i].bool
+    await this.setState({
+      location_datas: stateData
+    })
+  };
 
-        this.getDatas();
-        this.ObjCount();
-    };
-    
-    // 조회
-    getDatas = async() => {
-        this.setState({ loader: true });
-        const location_datas = await axios.get(this.state.url);
-        this.setState({ location_datas: location_datas.data, loader: false });
-    };
-
-    editDatas = async data => {
-        // clear datas obj
-        this.setState({ location_data: {}, loader: true });
-
-        await axios.put(`${this.state.url}/${data.id}`, {
-            location_name: data.location_name,
-            location_type: data.location_type,
-            location_lat: data.location_lat,
-            location_lng: data.location_lng,
-        });
-        this.getDatas();
-    };
-
-    //삭제
-    deleteDatas = async id => {
-        this.setState({ loader: true });
-        await axios.delete(`${this.state.url}/${id}`);
-
-        this.getDatas();
-    };
-
-    onFormSubmit = data => {
-        if(data.isEdit) {
-            //is edit true
-            this.editDatas(data);
-        } else {
-            //is eidt false
-            this.createDatas(data);
-        }
-    };
-
-    onDelete = id => {
-        this.deleteDatas(id);
-    }
-
-    onEdit = data => {
-        this.setState({ location_data: data });
-        this.setState({
-            on:!this.state.on
-        })
-    }
-
-    //ObjCount 
-    ObjCount = () => {
-      // 신호등, 횡단보도, 버스정류장 갯수 확인
-      const tt = this.state.location_datas;
-      this.state.cont1 = 0;
-      this.state.cont2 = 0;
-      this.state.cont3 = 0;
-      console.log('배열객체 확인', tt);
-      for(let i=0; i<tt.length; i++) {
-          if(tt[i].location_type == "신호등") {   
-              this.state.cont1++;
-          } else if (tt[i].location_type == "횡단보도") {
-              this.state.cont2++;
-          } else if (tt[i].location_type == "버스정류장") {
-              this.state.cont3++;
-          }
-      }
-      console.log('cont1', this.state.cont1);
-      console.log('cont2', this.state.cont2);
-      console.log('cont3', this.state.cont3);
-    }
-
-    render() {
-        return (
-            <div className="location">
-              <div className="blackline" />
-                <div className="map_section">
-                  <div className="map_section_left">
-                    <Location_form
-                      location_data={this.state.location_data}
-                      onFormSubmit={this.onFormSubmit}
-                    />
-                    <div className="map_section_category">
-                    {this.ObjCount()}
-                    
-                      <div className="child category_section">
-                        <img src={traffic} className="category_img"></img>
-                        <p>신호등</p>
-                        <Spring
-                          from={{ number :0 }}
-                          to={{number:this.state.cont1}}
-                          delay={200}
-                        >
-                          {props => <div>{props.number}</div>}
-                        </Spring>
-                        <br />
-                        <button>신호등</button>
-                      </div>
-
-                      <div className="child category_section">
-                        <img src={crosswalk} className="category_img"></img>
-                        <p>횡단보도</p>
-                        <Spring
-                          from={{ number :0 }}
-                          to={{number:this.state.cont2}}
-                          delay={200}
-                        >
-                          {props => <div>{props.number}</div>}
-                        </Spring>
-                        <br />
-                        <button>횡단보도</button>
-                      </div>
-                      
-                      <div className="child category_section">
-                        <img src={busstop} className="category_img"></img>
-                        <p>버스정류장</p>
-                        <Spring
-                          from={{ number :0 }}
-                          to={{number:this.state.cont3}}
-                          delay={200}
-                        >
-                          {props => <div>{props.number}</div>}
-                        </Spring>
-                        <br />
-                        <button>버스정류장</button>
-                      </div>
-                    </div>
-
-                    {/* <Location_list
-                        location_datas={this.state.location_datas}
-                        onDelete={this.onDelete}
-                        onEdit={this.onEdit}
-                    /> */}
-                  </div>
-                                    
-                  <div className="map_section_right">
-                    {this.state.loader ? <Loader /> : ""}
-                    <Maps />
-                  </div>
-                    
-                </div>
-            </div>
-        );
-    }
+  //마커를 눌렀을 때 팝업뜨면서 상세메세지 뜨는거
+  displayInfoWindows = () => {
+    return this.state.location_datas.map((location, index) => {
+      return (
+        <InfoWindow
+          key={index}
+          visible={location.bool}
+          content={location.location_name}
+          position={{ lat: location.location_lat, lng: location.location_lng }} 
+          onClose={()=>this.visibleInfoWindow(index)}
+        >
+        </InfoWindow>
+      );
+    })
+  }
+  
+  //클릭 했을 때 마커 삭제함 EX) 추가하려고 클릭했지만 변심으로 제거하려고 할 때 그대로 마커 누르면 제거됨
+  removeMarkers = async (i) => {
+    const {stores} = this.state;
+    let stateData = stores;
+    stateData.splice(i,1);
+    await this.setState({
+      stores: stateData
+    })
+  }
+  
+  render() {
+  return (
+    <div className="content">
+      <Map className="google-map"
+          google = {this.props.google} 
+          zoom={13}
+          style={this.props.mapStyles}
+          initialCenter= {{
+            lat: 35.894380,
+            lng: 128.619268
+          }}
+          onClick={this.addMarkers}
+          >
+          {this.displayMarkers()}
+          {this.displayMarkersAll()}
+          {this.displayInfoWindows()}
+      </Map>
+    </div>
+    )
+  }
 }
+
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyA8Acop1PDTra-V8pBC19IzMSNhqvP9Z20'
+})(Location);
 
