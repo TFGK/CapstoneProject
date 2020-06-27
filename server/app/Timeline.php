@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Timeline extends Model
 {
-    protected $fillable = ['location_name', 'location_lat', "location_lng"];
+    protected $fillable = ['user_id', 'place_name', 'place_lat', "place_lng"];
 
     public function user()
     {
