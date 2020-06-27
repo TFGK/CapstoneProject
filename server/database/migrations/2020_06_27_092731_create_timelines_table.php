@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateTimelinesTable extends Migration
 {
     /**
@@ -14,8 +15,8 @@ class CreateTimelinesTable extends Migration
     public function up()
     {
         Schema::create('timelines', function (Blueprint $table) {
-            $table->Integer('id');
-            $table->Integer('user_id');
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id');
             $table->string('place_name');
             $table->string('place_lat');
             $table->string('place_lng');
