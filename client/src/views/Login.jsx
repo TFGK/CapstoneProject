@@ -44,7 +44,7 @@ class Login extends Component {
             login(user).then(res => {
                 if (res) {
                     console.log('토큰인가?', res);
-                    this.props.history.push(`/`)
+                    this.props.history.push(`/admin/main`)
                 }
         })
     }

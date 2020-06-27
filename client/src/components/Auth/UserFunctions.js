@@ -33,19 +33,19 @@ export const login = user => {
         })
 }
 
-export const update = user => {
+export const update = (user, id) => {
     return axios
-        .put('/api/update',
+        .put(`/api/update/${id}`,
             {
-                name: user.name,
-                email: user.email,
-                password: user.password,
-                pwconfirm: user.pwconfirm,
-                address: user.address,
-                city: user.city,
-                country: user.country,
-                about: user.about,
-                birthday: user.birthday,
+              name: user.name,
+              email: user.email,
+              password: user.password,
+              address: user.address,
+              city: user.city,
+              country: user.country,
+              about: user.about,
+              birthday: user.birthday,
+                
             },
             {
                 headers: { 'Content-Type': 'application/json' }

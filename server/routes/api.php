@@ -5,10 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('locations', 'Api\LocationController')->except(['create','edit']);
 
-Route::post('register', 'Api\Auth\UserController@register');
-Route::post('login', 'Api\Auth\UserController@login');
-Route::put('update', 'Api\Auth\UserController@update');
-Route::get('profile', 'Api\Auth\UserController@getAuthenticatedUser');
+Route::post('register', 'UserController@register');
+Route::post('login', 'UserController@login');
+Route::put('update/{id}', 'UserController@update');
+Route::get('profile', 'UserController@getAuthenticatedUser');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

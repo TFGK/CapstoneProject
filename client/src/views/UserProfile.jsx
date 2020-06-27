@@ -36,6 +36,7 @@ class UserProfile extends Component {
     this.onSubmit = this.onSubmit.bind(this)
 }
   componentDidMount() {
+    console.log(localStorage.usertoken);
     getProfile().then(res => {
         if(res == null) {
           window.location.href = "/";
@@ -70,19 +71,20 @@ class UserProfile extends Component {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
-            pwconfirm: this.state.pwconfirm,
-            address: this.state.address,
+            birthday: this.state.birthday,
             city: this.state.city,
             country: this.state.country,
             about: this.state.about,
-            birthday: this.state.birthday,
+            address: this.state.address,
+            // pwconfirm: this.state.pwconfirm,      
         }
+        const id = this.state.email;
       console.log('tetstestes', user);
 
-      update(user).then(res => {
+      update(user, id).then(res => {
         if (res) {
             console.log('업데이트 됐나??', res);
-            this.props.history.push(`/user`)
+            window.location.href="/admin/userprofile"
         }
       })
     }
@@ -108,7 +110,8 @@ class UserProfile extends Component {
                       ncols={["col-md-5", "col-md-7"]}
                       properties={[
                         {
-                          label: "Username",
+                          label: "name",
+                          name: "name",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Username",
@@ -117,6 +120,7 @@ class UserProfile extends Component {
                         },
                         {
                           label: "Email address",
+                          name : "email",
                           type: "email",
                           bsClass: "form-control",
                           placeholder: "email",
@@ -155,6 +159,7 @@ class UserProfile extends Component {
                       properties={[
                         {
                           label: "address",
+                          name: "address",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Home address",
@@ -168,6 +173,7 @@ class UserProfile extends Component {
                       properties={[
                         {
                           label: "City",
+                          name: "city",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "City",
@@ -176,6 +182,7 @@ class UserProfile extends Component {
                         },
                         {
                           label: "Country",
+                          name: "country",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Country",
@@ -189,6 +196,7 @@ class UserProfile extends Component {
                     properties={[
                       {
                         label: "Birthday",
+                        name: "birthday",
                         type: "date",
                         bsClass: "form-control",
                         placeholder: "Country",
