@@ -22,8 +22,7 @@ class UserController extends Controller
    
     public function login(Request $request)
     {
-        // $credentials = $request->json()->all();
-        $credentials = $request->only(['email', 'password']);
+        $credentials = $request->json()->all();
 
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
@@ -38,6 +37,7 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+        
         $validator = Validator::make($request->json()->all() , [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -64,17 +64,17 @@ class UserController extends Controller
         return response()->json(compact('user','token'),201);
     }
 
-    public function refresh() 
-    {
-        try {
-            $newToken = auth()->refresh();
-        } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-            return response()->json(['error' => $e->getMessage()], 401);
-        }
+    // public function refresh() 
+    // {
+    //     try {
+    //         $newToken = auth()->refresh();
+    //     } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+    //         return response()->json(['error' => $e->getMessage()], 401);
+    //     }
 
-        return response()->json(['token' => $newToken]);
+    //     return response()->json(['token' => $newToken]);
 
-    }
+    // }
 
     public function update(Request $request)
     {

@@ -6,8 +6,18 @@ import TableList from "views/TableList.jsx";
 
 import Login from "views/Login.jsx";
 import Register from "views/Register.jsx";
+import Main from "views/Main.js";
 
 const dashboardRoutes = [
+
+  {
+    path:"/main",
+    name:"Main",
+    icon:"pe-7s-board",
+    component: Main,
+    layout:"/admin"
+  },
+
   {
     path: "/dashboard",
     name: "Dashboard",

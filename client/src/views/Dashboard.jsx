@@ -8,6 +8,7 @@ import { StatsCard } from "components/StatsCard/StatsCard.jsx";
 import Location_list from "components/location/Location_list";
 
 class Dashboard extends Component {
+  
   state = {
     location_datas: [],
     location_data: {},
