@@ -2,7 +2,7 @@
     $host = '54.180.103.20';
     $username = 'nabe'; # MySQL 계정 아이디
     $password = 'nabe'; # MySQL 계정 패스워드
-    $dbname = 'eye';  # DATABASE 이름
+    $dbname = 'eyes';  # DATABASE 이름
 
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
     
