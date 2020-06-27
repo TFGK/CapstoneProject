@@ -3,11 +3,19 @@ import UserProfile from "views/UserProfile.jsx";
 import Maps from "views/Maps.jsx";
 import Create from "views/Create.jsx";
 import TableList from "views/TableList.jsx";
+import Main from "views/Main.js";　
 
 import Login from "views/Login.jsx";
 import Register from "views/Register.jsx";
 
 const dashboardRoutes = [
+  {
+    path:"/main",
+    name:"Main",
+    icon:"pe-7s-board",
+    component: Main,
+    layout:"/admin"
+  },
   {
     path: "/dashboard",
     name: "Dashboard",

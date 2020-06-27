@@ -10,12 +10,15 @@
     color: white
 }
 
-#sidebar > div.sidebar-wrapper > ul > li:nth-child(4){
-    display: none;
+#sidebar > div.sidebar-wrapper > ul > li:nth-child(1){
+  text-align: center;
 }
-#sidebar > div.sidebar-wrapper > ul > li:nth-child(6){
-    display: none;
+#sidebar > div.sidebar-wrapper > ul > li:nth-child(5){
+  display: none;
 }
 #sidebar > div.sidebar-wrapper > ul > li:nth-child(7){
-    display: none;
+  display: none;
+}
+#sidebar > div.sidebar-wrapper > ul > li:nth-child(8){
+  display: none;
 }
