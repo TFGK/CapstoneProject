@@ -16,7 +16,7 @@ class Location extends Component {
   componentDidMount() {
     this.getDatas();
 
-  }
+  } 
 
   getDatas = async() => {
     const location_datas = await axios.get(this.state.url);
@@ -111,7 +111,7 @@ class Location extends Component {
     <div className="content">
       <Map className="google-map"
           google = {this.props.google} 
-          zoom={13}
+          zoom={15}
           style={this.props.mapStyles}
           initialCenter= {{
             lat: 35.894380,
