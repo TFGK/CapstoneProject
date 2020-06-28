@@ -38,9 +38,6 @@ class Login extends Component {
                 email: this.state.email,
                 password: this.state.password
             }
-
-            console.log('tetstestes', user);
-
             login(user).then(res => {
                 if (res) {
                     console.log('토큰인가?', res);

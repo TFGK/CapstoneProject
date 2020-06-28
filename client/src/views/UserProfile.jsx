@@ -15,9 +15,9 @@ import {
 
 //auth
 import { getProfile } from '../components/Auth/UserFunctions';
+import { getTimeline } from '../components/Auth/UserFunctions';
 import { update } from '../components/Auth/UserFunctions';
 import './loader.js'
-
 
 class UserProfile extends Component {
   constructor() {
@@ -30,13 +30,17 @@ class UserProfile extends Component {
         country: '',
         birthday: '',
         about: '',
-        errors: {}
+        errors: {},
+        timeline1 : '',
+        timeline2 : '',
+        timeline3 : '',
+        timeline4 : '',
+        timeline5 : ''
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
 }
   componentDidMount() {
-    console.log(localStorage.usertoken);
     getProfile().then(res => {
         if(res == null) {
           window.location.href = "/";
@@ -54,7 +58,23 @@ class UserProfile extends Component {
             })
         }
     })
+    .then( () => {
+      const data = {
+          email: this.state.email
+      }
+      getTimeline(data).then(res => {
+        if(res == null ) {
+          window.location.href = "/";
+        }else{
+          this.setState({
+          
+          })
+        }
+        // console.log('getTimeline userprofiles 63 ', res);
+      });
+    });
   }
+  
 
   onChange (e) {
     this.setState({ [e.target.name]: e.target.value })
@@ -89,13 +109,11 @@ class UserProfile extends Component {
       })
     }
   }
-
   more(e){
     e.preventDefault();
   }
 
   render() {
-    let str = this.state.name;
     return (
       <div className="content">
         <Grid fluid>
@@ -256,10 +274,10 @@ class UserProfile extends Component {
                 }
               />
             </Col>
-
             <Col md={12}>
               <div class="page-header">
                 <h2>timeline</h2>
+                <br />
               </div>
               <div>
               <ul class="timeline timeline-horizontal">
@@ -304,9 +322,6 @@ class UserProfile extends Component {
                   </div>
                 </li>
               </ul>
-              </div>
-              <div>
-                <a href="http://127.0.0.1:8000/api/RoadAPI" class="more"> more </a>
               </div>
             </Col>
           </Row>

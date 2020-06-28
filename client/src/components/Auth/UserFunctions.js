@@ -66,7 +66,21 @@ export const getProfile = () => {
             headers: { Authorization: `Bearer ${localStorage.usertoken}` }
         })
         .then(response => {
-            console.log("test",response)
+            console.log("getProfiles",response)
+            return response.data
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+export const getTimeline = (data) => {
+    return axios
+        .get('/api/timelines', {
+            headers: { Authorization: `Bearer ${localStorage.usertoken}` }
+        })
+        .then(response => {
+            console.log("getProfiles",JSON.stringify(response))
             return response.data
         })
         .catch(err => {
