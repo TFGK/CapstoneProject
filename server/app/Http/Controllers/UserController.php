@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Auth;
+namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-
+  
 //use JWTAuth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
@@ -76,9 +76,9 @@ class UserController extends Controller
 
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $id = $request->json()->get('email');
+        $id = $id->json()->get('email');
         $olduser = User::whereEmail($id)->firstOrFail();
 
         $validator = Validator::make($request->json()->all() , [

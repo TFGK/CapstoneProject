@@ -37,9 +37,6 @@ export default function OutlinedTimeline() {
         </TimelineSeparator>
         <TimelineContent>교동면옥 복현점</TimelineContent>
       </TimelineItem> 
-      <div>
-        <a href="http://127.0.0.1:8000/api/RoadAPI"> more </a>
-      </div>
     </Timeline>
   );
 }

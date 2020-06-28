@@ -33,19 +33,19 @@ export const login = user => {
         })
 }
 
-export const update = user => {
+export const update = (user, id) => {
     return axios
-        .put('/api/update',
+        .put(`/api/update/${id}`,
             {
-                name: user.name,
-                email: user.email,
-                password: user.password,
-                pwconfirm: user.pwconfirm,
-                address: user.address,
-                city: user.city,
-                country: user.country,
-                about: user.about,
-                birthday: user.birthday,
+              name: user.name,
+              email: user.email,
+              password: user.password,
+              address: user.address,
+              city: user.city,
+              country: user.country,
+              about: user.about,
+              birthday: user.birthday,
+                
             },
             {
                 headers: { 'Content-Type': 'application/json' }
@@ -66,7 +66,21 @@ export const getProfile = () => {
             headers: { Authorization: `Bearer ${localStorage.usertoken}` }
         })
         .then(response => {
-            console.log("test",response)
+            console.log("getProfiles",response)
+            return response.data
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+export const getTimeline = (data) => {
+    return axios
+        .get('/api/timelines', {
+            headers: { Authorization: `Bearer ${localStorage.usertoken}` }
+        })
+        .then(response => {
+            console.log("getProfiles",JSON.stringify(response))
             return response.data
         })
         .catch(err => {

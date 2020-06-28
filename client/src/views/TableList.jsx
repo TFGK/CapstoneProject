@@ -86,7 +86,7 @@ getAll = () =>{
                     <thead>
                       <tr>
                         {thArray.map((prop, key) => {
-                          return <th key={key}>{prop}</th>;
+                          return (<th key={key}>{prop}</th>);
                         })}
                       </tr>
                     </thead>
@@ -95,7 +95,8 @@ getAll = () =>{
                         return (
                           <tr key={key}>
                             {prop.map((prop, key) => {
-                              return <td key={key}>{prop}</td>;
+                              return (
+                              <td key={key}>{prop}</td>);
                             })}
                           </tr>
                         );

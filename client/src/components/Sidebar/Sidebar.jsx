@@ -42,20 +42,20 @@ class Sidebar extends Component {
           ) : (
             null
           )}
-        <div className="logo">
+        <div className="logo ">
           <a
-            href="/admin/dashboard"
-            className="simple-text logo-mini"
+            href="/admin/main"
+            className="simple-text logo-mini logo-center"
           >
             <div className="logo-img">
               <img src={logo} alt="logo_image" />
             </div>
           </a>
           <a
-            href="/admin/dashboard"
-            className="simple-text logo-normal"
+            href="/admin/main"
+            className="simple-text logo-normal sidebar-font"
           >
-            A . eye
+            A eye
           </a>
         </div>
 
@@ -80,7 +80,7 @@ class Sidebar extends Component {
                       activeClassName="active"
                     >
                       <i className={prop.icon} />
-                      <p>{prop.name}</p>
+                      <p className="nav-link-font">{prop.kname}</p>
                     </NavLink>
                   </li>
                 );
