@@ -28,7 +28,6 @@ Route::get('RoadAPI', function() {
     return view('road');
 });
 
-
 // articles
 Route::get('tasks', 'TaskController@index');
 Route::get('task/{id}', 'TaskController@show');
