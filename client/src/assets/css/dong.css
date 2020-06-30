@@ -9,7 +9,22 @@
     background-color: #1DC7EA;
     color: white
 }
-
+.map_section_right .content .google-map{
+  margin-left: 10px;
+}
+.map_section_1 .content .container-fluid .row .col-md-4 .card{
+  margin-top: 10px;
+  overflow: auto;
+  height: 420px;
+}
+.main_section{
+  margin-left: 10px;
+}
+.map_section_1 .content .container-fluid .row .col-md-8 .card{
+  margin-top: 10px;
+  overflow: auto;
+  height: 420px;
+}
 #sidebar > div.sidebar-wrapper > ul > li:nth-child(1){
   text-align: center;
 }

@@ -34,7 +34,7 @@ class Sidebar extends Component {
       <div
         id="sidebar"
         className="sidebar"
-        data-color={this.props.color}
+        data-color="green"
         data-image={this.props.image}
       >
           {this.props.hasImage ? (
