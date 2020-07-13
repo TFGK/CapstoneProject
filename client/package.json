@@ -8,7 +8,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.19.2",
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "chartist": "0.10.1",
     "google-maps-react": "^2.0.6",
     "jquery": "^3.5.1",
