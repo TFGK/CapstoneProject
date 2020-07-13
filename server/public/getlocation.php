@@ -5,13 +5,15 @@ if(mysqli_connect_errno($con)){
 }
 mysqli_set_charset($con,"utf8");
 
-$res = mysqli_query($con,"select * from tasks");
+$res = mysqli_query($con,"select * from locations");
 $result = array();
 
 while($row = mysqli_fetch_array($res)){
     array_push($result,
-              array('id'=>$row[0],'title'=>$row[1],'content'=>$row[2],'category'=>$row[3]));
+              array('id'=>$row[0],'location_name'=>$row[1],'location_lat'=>$row[3],
+              'location_lng'=>$row[4]));
 }
+
 echo json_encode(array("result"=>$result));
 mysqli_close($con);
 ?>
