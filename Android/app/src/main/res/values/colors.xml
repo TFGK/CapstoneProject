@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#1B5E20</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="textcolor">#1B5E20</color>
+    <color name="toolcolor">#FFFFFF</color>
+    <color name="naver">#2DB400</color>
+
+    <color name="cursorColor">#0D47A1</color>
+    <color name="nomalColor">#1A237E</color>
+</resources>
