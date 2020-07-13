@@ -1,0 +1,12 @@
+pip3 설치 목록
+	numpy
+	time
+	pillow
+	RPi.GPIO
+	PyBluez
+	edgetpu
+
+설치 목록
+	tensorflow lite
+	openCV
+	
