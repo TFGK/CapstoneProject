@@ -114,7 +114,7 @@ h1 .subtitle {
   color: #1DC7EA !important; }
 
 .text-success, .text-success:hover {
-  color: #87CB16 !important; }
+  color: #87cb1682!important; }
 
 .text-warning, .text-warning:hover {
   color: #FF9500 !important; }
@@ -392,13 +392,13 @@ body > .navbar-collapse[data-color="azure"]:after {
 
 .sidebar[data-color="green"]:after,
 body > .navbar-collapse[data-color="green"]:after {
-  background: #87CB16;
-  background: -moz-linear-gradient(top, #87CB16 0%, #6dc030 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #87CB16), color-stop(100%, #6dc030));
-  background: -webkit-linear-gradient(top, #87CB16 0%, #6dc030 100%);
-  background: -o-linear-gradient(top, #87CB16 0%, #6dc030 100%);
-  background: -ms-linear-gradient(top, #87CB16 0%, #6dc030 100%);
-  background: linear-gradient(to bottom, #87CB16 0%, #6dc030 100%);
+  background: #87cb1682;
+  background: -moz-linear-gradient(top, #87cb16820%, #6dc030 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #87cb1682), color-stop(100%, #6dc030));
+  background: -webkit-linear-gradient(top, #87cb16820%, #6dc030 100%);
+  background: -o-linear-gradient(top, #87cb16820%, #6dc030 100%);
+  background: -ms-linear-gradient(top, #87cb16820%, #6dc030 100%);
+  background: linear-gradient(to bottom, #87cb16820%, #6dc030 100%);
   background-size: 150% 150%; }
 
 .sidebar[data-color="orange"]:after,
@@ -537,8 +537,8 @@ body > .navbar-collapse[data-color="purple"]:after {
     border-top-color: #3472F7; }
 
 .btn-success {
-  border-color: #87CB16;
-  color: #87CB16; }
+  border-color: #87cb1682;
+  color: #87cb1682; }
   .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active,
   .open > .btn-success.dropdown-toggle {
     background-color: transparent;
@@ -552,10 +552,10 @@ body > .navbar-collapse[data-color="purple"]:after {
   fieldset[disabled] .btn-success:active,
   fieldset[disabled] .btn-success.active {
     background-color: transparent;
-    border-color: #87CB16; }
+    border-color: #87cb1682; }
   .btn-success.btn-fill {
     color: #FFFFFF;
-    background-color: #87CB16;
+    background-color: #87cb1682;
     opacity: 1;
     filter: alpha(opacity=100); }
     .btn-success.btn-fill:hover, .btn-success.btn-fill:focus, .btn-success.btn-fill:active, .btn-success.btn-fill.active,
@@ -565,7 +565,7 @@ body > .navbar-collapse[data-color="purple"]:after {
     .btn-success.btn-fill .caret {
       border-top-color: #FFFFFF; }
   .btn-success .caret {
-    border-top-color: #87CB16; }
+    border-top-color: #87cb1682; }
 
 .btn-info {
   border-color: #1DC7EA;
@@ -804,9 +804,9 @@ body > .navbar-collapse[data-color="purple"]:after {
     -webkit-box-shadow: none;
     box-shadow: none; }
   .has-success .form-control {
-    color: #87CB16; }
+    color: #87cb1682; }
   .has-success .form-control:focus {
-    border-color: #87CB16; }
+    border-color: #87cb1682; }
   .has-error .form-control {
     color: #FF4A55; }
   .has-error .form-control:focus {
@@ -831,7 +831,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   color: #FF4A55; }
 
 .has-success .form-control-feedback {
-  color: #87CB16; }
+  color: #87cb1682; }
 
 .input-group-addon {
   background-color: #FFFFFF;
@@ -845,8 +845,8 @@ body > .navbar-collapse[data-color="purple"]:after {
     border-color: #FF4A55;
     color: #FF4A55; }
   .has-success .form-control:focus + .input-group-addon {
-    border-color: #87CB16;
-    color: #87CB16; }
+    border-color: #87cb1682;
+    color: #87cb1682; }
   .form-control:focus + .input-group-addon,
   .form-control:focus ~ .input-group-addon {
     background-color: #FFFFFF;
@@ -2077,10 +2077,10 @@ body > .navbar-collapse[data-color="purple"]:after {
   fill: #9368E9; }
 
 .ct-series-e .ct-point, .ct-series-e .ct-line, .ct-series-e .ct-bar, .ct-series-e .ct-slice-donut {
-  stroke: #87CB16; }
+  stroke: #87cb1682; }
 
 .ct-series-e .ct-slice-pie, .ct-series-e .ct-area {
-  fill: #87CB16; }
+  fill: #87cb1682; }
 
 .ct-series-f .ct-point, .ct-series-f .ct-line, .ct-series-f .ct-bar, .ct-series-f .ct-slice-donut {
   stroke: #1b8dff; }
