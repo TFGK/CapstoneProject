@@ -139,10 +139,10 @@ class Location_form extends Component {
             <Row>
                 <Col md={4}>
                 <Card
-                    title="data insert form"
+                    title="データ登録"
                     content={
                     <form className="map_form">
-                        <ControlLabel>CATEGORY</ControlLabel>
+                        <ControlLabel>カテゴリー</ControlLabel>
                         <FormControl
                             id="category"
                             name="location_type"
@@ -150,20 +150,20 @@ class Location_form extends Component {
                             bsClass="form-control"
                             onChange={this.handleChange}
                         >
-                            <option value="">-- 선택 --</option>
-                            <option value="신호등">신호등</option>
-                            <option value="횡단보도">횡단보도</option>
-                            <option value="버스정류장">버스정류장</option>
+                            <option value="">カテゴリー</option>
+                            <option value="신호등">信号機</option>
+                            <option value="횡단보도">横断歩道</option>
+                            <option value="버스정류장">バス停</option>
                         </FormControl>
                         <FormInputs
                         ncols={["col-md-12"]}
                         properties={[
                             {
-                            label: "location name",
+                            label: "場所名",
                             type: "text",
                             name: "location_name",
                             bsClass: "form-control",
-                            placeholder: "location name",
+                            placeholder: "場所名",
                             value: this.state.form.location_name,
                             onChange: this.handleChange
                             }
@@ -173,20 +173,20 @@ class Location_form extends Component {
                         ncols={["col-md-6", "col-md-6"]}
                         properties={[
                             {
-                            label: "location_lat",
+                            label: "緯度",
                             type: "text",
                             name: "location_lat",
                             bsClass: "form-control",
-                            placeholder: "location_lat",
+                            placeholder: "緯度",
                             value: this.state.form.location_lat,
                             onChange: this.handleChange
                             },
                             {
-                            label: "location_lng",
+                            label: "経度",
                             type: "text",
                             name: "location_lng",
                             bsClass: "form-control",
-                            placeholder: "location_lng",
+                            placeholder: "経度",
                             value: this.state.form.location_lng,
                             onChange: this.handleChange
                             }
@@ -198,7 +198,7 @@ class Location_form extends Component {
                             onClick={this.onFormSubmit}
                             className="save_button"
                         >
-                        {this.state.btnName}
+                        保存
                         </Button>
                     </form>
                     }

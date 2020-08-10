@@ -54,18 +54,18 @@ class Login extends Component {
                     <Col md={3}/>
                     <Col md={6}>
                     <Card 
-                        title="Login Page"
+                        title="ログイン"
                         content={
                         <form onSubmit={this.onSubmit}>
                             <FormInputs
                             ncols={["col-md-10"]}
                             properties={[
                                 {
-                                label: "Email address",
+                                label: "メールアドレス",
                                 type: "email",
                                 name: "email",
                                 bsClass: "form-control",
-                                placeholder: "email",
+                                placeholder: "メールアドレス",
                                 value: this.state.email,
                                 onChange: this.onChange
                                 }
@@ -76,11 +76,11 @@ class Login extends Component {
                             ncols={["col-md-10"]}
                             properties={[
                                 {
-                                label: "Password",
+                                label: "パスワード",
                                 type: "password",
                                 name: "password",
                                 bsClass: "form-control",
-                                placeholder: "Password",
+                                placeholder: "パスワード",
                                 value: this.state.password,
                                 onChange: this.onChange
                                 },
@@ -97,7 +97,7 @@ class Login extends Component {
                             />
 
                             <Button bsStyle="info" pullRight fill type="submit">
-                            Login
+                            接続
                             </Button>
                             <div className="clearfix" />
                         </form>

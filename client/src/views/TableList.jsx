@@ -70,14 +70,14 @@ getAll = () =>{
       <div className="content">
         <Link to="/admin/create">
           <Button bsStyle="info" fill className="table_btn">
-            글쓰기
+          投稿
           </Button>
         </Link>
         <Grid fluid>
           <Row>
             <Col md={12}>
               <Card
-                title="자유게시판"
+                title="掲示板"
                 // category="Here is a subtitle for this table"
                 ctTableFullWidth
                 ctTableResponsive
@@ -141,7 +141,7 @@ getAll = () =>{
 
             <Col md={12}>
               <Card
-                title="데이터 수정 요청"
+                title="データ修正提案"
                 // category="Here is a subtitle for this table"
                 ctTableFullWidth
                 ctTableResponsive

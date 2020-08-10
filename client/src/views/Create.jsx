@@ -59,7 +59,7 @@ class Create extends Component {
           <Row>
             <Col md={8}>
               <Card
-                title="글쓰기"
+                title="投稿"
                 content={
                   <form onSubmit={this.onSubmit} id="myArticle">
                     <FormInputs
@@ -69,7 +69,7 @@ class Create extends Component {
                     <Row>
                       <Col md={20}>
                         <FormGroup>
-                          <ControlLabel>제목</ControlLabel>
+                          <ControlLabel>タイトル</ControlLabel>
                           <FormControl
                             id="title"
                             name="title"
@@ -78,7 +78,7 @@ class Create extends Component {
                             componentClass="input"
                             bsClass="form-control"
                           />    
-                          <ControlLabel>내용</ControlLabel>
+                          <ControlLabel>内容</ControlLabel>
                           <FormControl
                             id="content"
                             name="content"
@@ -90,7 +90,7 @@ class Create extends Component {
                             placeholder="Here can be your description"
                             defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
                           />    
-                          <ControlLabel>카테고리</ControlLabel>
+                          <ControlLabel>カテゴリー</ControlLabel>
                           <FormControl
                             id="category"
                             name="category"
@@ -99,16 +99,16 @@ class Create extends Component {
                             bsClass="form-control"
                             value={this.state.category || ''}
                           >
-                            <option value="">-- 선택 --</option>
-                            <option value="free">자유게시판</option>
-                            <option value="sugesstion">Q & A</option>
-                            <option value="modify">데이터 수정 요청</option>
+                            <option value="">カテゴリー</option>
+                            <option value="free">掲示板</option>
+                            <option value="sugesstion">Q&A</option>
+                            <option value="modify">データ修正提案</option>
                           </FormControl>
                         </FormGroup>
                       </Col>
                     </Row>
                     <Button bsStyle="info" pullRight fill type="submit" onClick={this.onSubmit.bind(this)}>
-                      저장
+                    投稿
                     </Button>
                     <div className="clearfix" />
                   </form>

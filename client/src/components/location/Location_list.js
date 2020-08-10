@@ -22,17 +22,17 @@ export default class Location_list extends Component {
         return (
             <Col md={8}>
                 <Card
-                    title="data list"
+                    title="データリスト"
                     content={
                     <table className="ui celled table">
                     <thead>
                         <tr>
-                            <th style={{width: '50px', textAlign:"center" }}>No</th>
-                            <th>데이터타입</th>
-                            <th>장소명</th>
-                            <th>위도</th>
-                            <th>경도</th>
-                            <th style={{ width: "165px" }}>edit Form</th>
+                            <th style={{width: '50px', textAlign:"center" }}>No.</th>
+                            <th>データタイプ</th>
+                            <th>場所名</th>
+                            <th>緯度</th>
+                            <th>経度</th>
+                            <th style={{ width: "165px" }}>修正</th>
                         </tr>
                     </thead>
 

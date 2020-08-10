@@ -120,7 +120,7 @@ class UserProfile extends Component {
           <Row>
             <Col md={8}>
               <Card
-                title="Edit Profile"
+                title="プロフィール"
                 content={
                   <form onSubmit={this.onSubmit}>
 
@@ -128,20 +128,20 @@ class UserProfile extends Component {
                       ncols={["col-md-5", "col-md-7"]}
                       properties={[
                         {
-                          label: "name",
+                          label: "名前",
                           name: "name",
                           type: "text",
                           bsClass: "form-control",
-                          placeholder: "Username",
+                          placeholder: "名前",
                           defaultValue: this.state.name,
                           onChange: this.onChange
                         },
                         {
-                          label: "Email address",
+                          label: "メールアドレス",
                           name : "email",
                           type: "email",
                           bsClass: "form-control",
-                          placeholder: "email",
+                          placeholder: "メールアドレス",
                           defaultValue: this.state.email,
                           onChange: this.onChange
                           
@@ -152,20 +152,20 @@ class UserProfile extends Component {
                             ncols={["col-md-6", "col-md-6"]}
                             properties={[
                                 {
-                                label: "Password",
+                                label: "パスワード",
                                 type: "password",
                                 name: "password",
                                 bsClass: "form-control",
-                                placeholder: "Password",
+                                placeholder: "パスワード",
                                 value: this.state.password,
                                 onChange: this.onChange
                                 },
                                 {
-                                label: "Password confirm",
+                                label: "パスワード確認",
                                 type: "password",
                                 name: "pwconfirm",
                                 bsClass: "form-control",
-                                placeholder: "Password confirm",
+                                placeholder: "パスワード確認",
                                 value: this.state.pwconfirm,
                                 onChange: this.onChange
                                 }
@@ -176,11 +176,11 @@ class UserProfile extends Component {
                       ncols={["col-md-12"]}
                       properties={[
                         {
-                          label: "address",
+                          label: "住所",
                           name: "address",
                           type: "text",
                           bsClass: "form-control",
-                          placeholder: "Home address",
+                          placeholder: "住所",
                           defaultValue: this.state.address,
                           onChange: this.onChange
                         }
@@ -190,20 +190,20 @@ class UserProfile extends Component {
                       ncols={["col-md-6", "col-md-6"]}
                       properties={[
                         {
-                          label: "City",
+                          label: "都市名",
                           name: "city",
                           type: "text",
                           bsClass: "form-control",
-                          placeholder: "City",
+                          placeholder: "都市名",
                           defaultValue: this.state.city,
                           onChange: this.onChange
                         },
                         {
-                          label: "Country",
+                          label: "国家名",
                           name: "country",
                           type: "text",
                           bsClass: "form-control",
-                          placeholder: "Country",
+                          placeholder: "国家名",
                           defaultValue: this.state.country,
                           onChange: this.onChange
                         },
@@ -213,11 +213,11 @@ class UserProfile extends Component {
                     ncols={["col-md-6"]}
                     properties={[
                       {
-                        label: "Birthday",
+                        label: "生年月日",
                         name: "birthday",
                         type: "date",
                         bsClass: "form-control",
-                        placeholder: "Country",
+                        placeholder: "生年月日",
                         defaultValue: this.state.birthday,
                         onChange: this.onChange
                       },
@@ -226,7 +226,7 @@ class UserProfile extends Component {
                     <Row>
                       <Col md={12}>
                         <FormGroup>
-                          <ControlLabel>내용</ControlLabel>
+                          <ControlLabel>自己紹介</ControlLabel>
                           <FormControl
                             id="content"
                             name="content"
@@ -235,7 +235,7 @@ class UserProfile extends Component {
                             rows="5"
                             componentClass="textarea"
                             bsClass="form-control"
-                            placeholder="Here can be your description"
+                            placeholder="自己紹介"
                             value={this.state.about}
                             onChange={this.onChange}
                           />
@@ -243,7 +243,7 @@ class UserProfile extends Component {
                       </Col>
                     </Row>
                     <Button bsStyle="info" pullRight fill type="submit" onClick={this.onSubmit.bind(this)}>
-                      저장
+                      保存する
                     </Button>
                     <div className="clearfix" />
 
@@ -268,7 +268,7 @@ class UserProfile extends Component {
                 socials={
                   <div>
                     <Button simple>
-                      Timeline
+                    タイムライン	
                     </Button>
                   </div>
                 }
@@ -276,7 +276,7 @@ class UserProfile extends Component {
             </Col>
             <Col md={12}>
               <div class="page-header">
-                <h2>timeline</h2>
+                <h2>タイムライン</h2>
                 <br />
               </div>
               <div>

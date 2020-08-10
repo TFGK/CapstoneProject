@@ -69,27 +69,27 @@ class Register extends Component {
                     <Col md={3}/>
                     <Col md={6}>
                     <Card
-                        title="Register page"
+                        title="新規取得"
                         content={
                         <form onSubmit={this.onSubmit}>
                             <FormInputs
                             ncols={["col-md-5", "col-md-7"]}
                             properties={[
                                 {
-                                label: "Username",
+                                label: "名前",
                                 type: "text",
                                 name: "name",
                                 bsClass: "form-control",
-                                placeholder: "Username",
+                                placeholder: "名前",
                                 value: this.state.name,
                                 onChange: this.onChange
                                 },
                                 {
-                                label: "Email address",
+                                label: "メールアドレス",
                                 type: "email",
                                 name: "email",
                                 bsClass: "form-control",
-                                placeholder: "email",
+                                placeholder: "メールアドレス",
                                 value: this.state.email,
                                 onChange: this.onChange
                                 }
@@ -100,20 +100,20 @@ class Register extends Component {
                             ncols={["col-md-6", "col-md-6"]}
                             properties={[
                                 {
-                                label: "Password",
+                                label: "パスワード",
                                 type: "password",
                                 name: "password",
                                 bsClass: "form-control",
-                                placeholder: "Password",
+                                placeholder: "パスワード",
                                 value: this.state.password,
                                 onChange: this.onChange
                                 },
                                 {
-                                label: "Password confirm",
+                                label: "パスワード確認",
                                 type: "password",
                                 name: "pwconfirm",
                                 bsClass: "form-control",
-                                placeholder: "Password confirm",
+                                placeholder: "パスワード確認",
                                 value: this.state.pwconfirm,
                                 onChange: this.onChange
                                 }
@@ -124,11 +124,11 @@ class Register extends Component {
                             ncols={["col-md-12"]}
                             properties={[
                                 {
-                                label: "address",
+                                label: "住所",
                                 type: "text",
                                 name: "address",
                                 bsClass: "form-control",
-                                placeholder: "Home address",
+                                placeholder: "住所",
                                 value: this.state.address,
                                 onChange: this.onChange
                                 }
@@ -139,19 +139,19 @@ class Register extends Component {
                             ncols={["col-md-6", "col-md-6"]}
                             properties={[
                                 {
-                                label: "City",
+                                label: "都市名",
                                 type: "text",
                                 name: "city",
                                 bsClass: "form-control",
-                                placeholder: "City",
+                                placeholder: "都市名",
                                 value: this.state.city,
                                 onChange: this.onChange
                                 },
                                 {
-                                label: "Country",
+                                label: "国家名",
                                 type: "text",
                                 bsClass: "form-control",
-                                placeholder: "Country",
+                                placeholder: "国家名",
                                 name: "country",
                                 value: this.state.country,
                                 onChange: this.onChange
@@ -162,11 +162,11 @@ class Register extends Component {
                             ncols={["col-md-8"]}
                             properties={[
                                 {
-                                    label: "Birthday",
+                                    label: "生年月日",
                                     type: "date",
                                     bsClass: "form-control",
                                     name: "birthday",
-                                    placeholder: "birthday",
+                                    placeholder: "生年月日",
                                     value: this.state.birthday,
                                     onChange: this.onChange
                                 },
@@ -175,13 +175,13 @@ class Register extends Component {
                             <Row>
                             <Col md={12}>
                                 <FormGroup controlId="formControlsTextarea">
-                                <ControlLabel>About Me</ControlLabel>
+                                <ControlLabel>自己紹介</ControlLabel>
                                 <FormControl
                                     rows="5"
                                     componentClass="textarea"
                                     name="about"
                                     bsClass="form-control"
-                                    placeholder="Here can be your description"
+                                    placeholder="自己紹介"
                                     value={this.state.about}
                                     onChange={this.onChange}
                                 />
@@ -189,7 +189,7 @@ class Register extends Component {
                             </Col>
                             </Row>
                             <Button bsStyle="info" pullRight fill type="submit">
-                            Create Acoount
+                            確認
                             </Button>
                             <div className="clearfix" />
                         </form>

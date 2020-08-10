@@ -12,7 +12,7 @@ const dashboardRoutes = [
   {
     path:"/main",
     name:"Main",
-    kname:"메인",
+    kname:"メインページ",
     icon:"pe-7s-board",
     component: Main,
     layout:"/admin"
@@ -20,7 +20,7 @@ const dashboardRoutes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    kname:"맵 데이터",
+    kname:"マップデータ",
     icon: "pe-7s-graph",
     component: Dashboard,
     layout: "/admin"
@@ -29,7 +29,7 @@ const dashboardRoutes = [
   {
     path: "/userprofile",
     name: "UserProfile",
-    kname:"프로필",
+    kname:"プロフィール",
     icon: "pe-7s-user",
     component: UserProfile,
     layout: "/admin"
@@ -37,7 +37,7 @@ const dashboardRoutes = [
   {
     path: "/maps",
     name: "Maps",
-    kname:"데이터 추가",
+    kname:"データ登録",
     icon: "pe-7s-map-marker",
     component: Maps,
     layout: "/admin"
@@ -48,7 +48,7 @@ const dashboardRoutes = [
   {
     path: "/create",
     name: "Create",
-    kname:"글쓰기",
+    kname:"投稿",
     icon: "pe-7s-user",
     component: Create,
     layout: "/admin"
@@ -57,7 +57,7 @@ const dashboardRoutes = [
   {
     path: "/table",
     name: "board",
-    kname:"게시판",
+    kname:"掲示板",
     icon: "pe-7s-note2",
     component: TableList,
     layout: "/admin"

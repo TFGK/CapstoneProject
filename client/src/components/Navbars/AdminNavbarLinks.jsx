@@ -14,11 +14,11 @@ class AdminNavbarLinks extends Component {
     const loginRegLink = (
       <Nav pullRight>
           <NavItem eventKey={1} href="/admin/login">
-            Login
+            ログイン
           </NavItem>
 
         <NavItem eventKey={1.1} href="/admin/register">
-          Register
+          新規習得
         </NavItem>
       </Nav>
     )
@@ -27,7 +27,7 @@ class AdminNavbarLinks extends Component {
       //로그인 했을 때 user 정보가 뜸
       <Nav pullRight>
         <NavItem eventKey={1.1} href="" onClick={this.logOut.bind(this)}>
-          Logout
+          ログアウト
         </NavItem>
       </Nav>
     )

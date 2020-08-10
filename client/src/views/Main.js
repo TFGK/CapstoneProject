@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import '../assets/css/main.css';
 import '../assets/css/main-animate.css';
 
-import google from '../assets/img/app_google.png';
+import google from '../assets/img/app_google_jp.png';
 import iPhone from '../assets/img/cell_Phone2.png';
 
 class Main extends Component{
@@ -16,11 +16,17 @@ class Main extends Component{
               <img src={iPhone} className="main_cellphone in-left3" alt="iPhone"></img>
             </div>
             <div className="main_article_section_right">
-              <p className="main_article in-left">언제 어디서든<br/>
-              에이아이(Aeye)를 만나보세요.</p>
-              <p className="sub_article in-left2">Aeye는 '시각장애인'및 '저시력자'등<br/>
-              시각의 보조가 필요한 사용자들에게<br/>
-              스마트폰 카메라를 통해 인식한 정보를 알려주는 서비스입니다.</p>
+              <p className="main_article in-left">
+              いつでも、どこでも<br/>
+              Aeyeを
+              ご利用ください。
+              </p>
+              <p className="sub_article in-left2">
+              Aeyeは視覚障害者、「低視力者」など<br/>
+              視覚の補助が必要なユーザーに<br/>
+              スマートフォンのカメラを通じて認識した<br/>
+              情報を教えるサービスです。
+              </p>
             <a href="https://play.google.com/store" target="_blank">
               <img src={google} className="google_button in-left2" alt="googleBt" />
             </a> 

@@ -83,7 +83,7 @@ class Dashboard extends Component {
             <Col lg={3} sm={6}>
               <StatsCard
                 bigIcon={<i className="pe-7s-server text-warning" />}
-                statsText="신호등"
+                statsText="信号機"
                 statsValue={this.state.cont1}
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Updated now"
@@ -93,7 +93,7 @@ class Dashboard extends Component {
             <Col lg={3} sm={6}>
               <StatsCard
                 bigIcon={<i className="pe-7s-wallet text-success" />}
-                statsText="횡단보도"
+                statsText="横断歩道"
                 statsValue={this.state.cont2}
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Last day"
@@ -103,7 +103,7 @@ class Dashboard extends Component {
             <Col lg={3} sm={6}>
               <StatsCard
                 bigIcon={<i className="pe-7s-graph1 text-danger" />}
-                statsText="버스정류장"
+                statsText="バス停"
                 statsValue={this.state.cont3}
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="In the 1 hour"
@@ -113,7 +113,7 @@ class Dashboard extends Component {
             <Col lg={3} sm={6}>
               <StatsCard
                 bigIcon={<i className="pe-7s-sum text-warning" />}
-                statsText="합계 Data"
+                statsText="総合データ"
                 statsValue={
                   this.state.cont1 +
                   this.state.cont2 +
